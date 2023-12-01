@@ -1,0 +1,22 @@
+﻿<Window x:Class="VipeBus.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VipeBus"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="830" Width="1280">
+    <Grid>
+        <Rectangle Width="432" Height="370" Fill="LightGray" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <!-- Добавляем текстбоксы внутри прямоугольника -->
+        <TextBox x:Name="UserLog" Width="200" Height="30" Margin="542,354,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <TextBox x:Name="UserPas" Width="200" Height="30" Margin="542,407,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+
+        <!-- Добавляем кнопку внутри прямоугольника -->
+        <Button Content="Войти" Width="196" Height="54" Margin="0,495,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Click="LoginButton_Click" />
+        <Label Content="Логин" HorizontalAlignment="Left" Margin="542,328,0,0" VerticalAlignment="Top"/>
+        <Label Content="Пароль" HorizontalAlignment="Left" Margin="542,384,0,0" VerticalAlignment="Top"/>
+        <Label Content="Вход" HorizontalAlignment="Left" Margin="596,248,0,0" VerticalAlignment="Top" Height="54" Width="92" FontSize="36"/>
+
+    </Grid>
+</Window>

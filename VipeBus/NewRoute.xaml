@@ -1,0 +1,27 @@
+﻿<Window x:Class="VipeBus.NewRoute"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="NewRoute" Height="200" Width="300">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+
+        <TextBox x:Name="fromTextBox" Grid.Row="0" Margin="5" VerticalAlignment="Center" />
+
+
+        <TextBox x:Name="toTextBox" Grid.Row="1" Margin="5" VerticalAlignment="Center"/>
+
+        
+        <TextBox x:Name="distanceTextBox" Grid.Row="2" Margin="5,8,5,0" VerticalAlignment="Top"/>
+
+        <StackPanel Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+            <Button Content="Сохранить" Width="80" Height="25" Click="SaveButton_Click"/>
+            <Button Content="Отмена" Width="80" Height="25" Click="CancelButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

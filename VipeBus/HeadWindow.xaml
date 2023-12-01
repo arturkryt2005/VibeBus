@@ -1,0 +1,39 @@
+﻿<Window x:Class="VipeBus.HeadWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VipeBus"
+        mc:Ignorable="d"
+        Title="HeadWindow" Height="830" Width="1280">
+    <Grid>
+        <Label Content="UrbanVibe" HorizontalAlignment="Left" Margin="31,-12,0,0" VerticalAlignment="Top" Width="237" FontSize="48" RenderTransformOrigin="0.5,0.5" Height="65">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="0.781"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0.504"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Button Content="Новая поездка" HorizontalAlignment="Left" Margin="40,90,0,0" VerticalAlignment="Top" Width="241" Height="44" FontSize="16" Click="AddTripButton_Click"/>
+        <Button Content="Водители" HorizontalAlignment="Left" Margin="40,146,0,0" VerticalAlignment="Top" Width="241" Height="44" FontSize="16" Click="Button_Click"/>
+        <Button Content="Города" HorizontalAlignment="Left" Margin="40,202,0,0" VerticalAlignment="Top" Width="241" Height="45" FontSize="16" Click="Button_Click_1"/>
+        <Button Content="Маршрут" HorizontalAlignment="Left" Margin="40,258,0,0" VerticalAlignment="Top" Width="241" Height="45" FontSize="16" Click="RouteButton_Click"/>
+
+        <Rectangle Fill="LightGray" Margin="313,36,40,57"/>
+
+        <!-- Добавляем DataGrid -->
+        <DataGrid x:Name="tripDataGrid" AutoGenerateColumns="False" Margin="316,39,44,61">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Город отправления" Binding="{Binding DepartureCity}" Width="*"/>
+                <DataGridTextColumn Header="Город прибытия" Binding="{Binding ArrivalCity}" Width="*"/>
+                <DataGridTextColumn Header="Дата" Binding="{Binding Date}" Width="*"/>
+                <DataGridTextColumn Header="Время" Binding="{Binding Time}" Width="*"/>
+                <DataGridTextColumn Header="ФИО" Binding="{Binding DriverName}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>
