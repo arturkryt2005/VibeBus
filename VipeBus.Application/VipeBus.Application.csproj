@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -44,6 +45,7 @@
     <Compile Include="Entities\Buses\Bus.cs" />
     <Compile Include="Entities\Cities\City.cs" />
     <Compile Include="Entities\Companies\Company.cs" />
+    <Compile Include="Entities\Drivers\Driver.cs" />
     <Compile Include="Entities\Routes\Route.cs" />
     <Compile Include="Entities\Trips\Trip.cs" />
     <Compile Include="Entities\Users\User.cs" />

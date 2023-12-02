@@ -1,44 +1,62 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using VipeBus.Application.Entities.Buses;
+using VipeBus.Core;
 
 namespace VipeBus
 {
     public partial class NewDriver : Window
     {
-        private ObservableCollection<Driver.Drivers> drivers;
+        private VipeBusContext _context;
 
-        public NewDriver(ObservableCollection<Driver.Drivers> drivers)
+        public NewDriver()
         {
             InitializeComponent();
-            this.drivers = drivers;
+
+            using (_context = new VipeBusContext())
+            {
+                var result = _context.Buses
+                    .ToList();
+
+                BusComboBox.ItemsSource = result;
+            }
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            Driver.Drivers newDriver = new Driver.Drivers
+            if (FirstNameTextBox.Text == string.Empty
+                || LastNameTextBox.Text == string.Empty
+                || MiddleNameTextBox.Text == string.Empty
+                || BusComboBox.SelectedItem == null)
             {
-                LastName = LastNameTextBox.Text,
-                FirstName = FirstNameTextBox.Text,
-                MiddleName = MiddleNameTextBox.Text,
-                BusNumber = BusNumberTextBox.Text
-            };
+                MessageBox.Show("Не заполнены все поля.");
+                return;
+            }
 
-            drivers.Add(newDriver);
+            using (_context = new VipeBusContext())
+            {
+                var newDriver = new Application.Entities.Drivers.Driver
+                {
+                    Name = $"{LastNameTextBox.Text} {FirstNameTextBox.Text} {MiddleNameTextBox.Text}",
+                    BusId = ((Bus)BusComboBox.SelectedItem).Id,
+                };
 
-            // Закрыть окно
-            this.Close();
+                try
+                {
+                    _context.Drivers.Add(newDriver);
+                    _context.SaveChanges();
+
+                    MessageBox.Show($"Водитель {newDriver.Name} успешно добавлен.");
+                }
+                catch (Exception exception)
+                {
+                    Console.WriteLine(exception);
+                    throw;
+                }
+            }
+
+            Close();
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)

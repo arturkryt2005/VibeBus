@@ -1,4 +1,6 @@
-﻿namespace VipeBus.Application.Entities.Buses
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace VipeBus.Application.Entities.Buses
 {
     public class Bus
     {
