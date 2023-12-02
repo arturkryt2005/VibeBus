@@ -40,7 +40,7 @@
 
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Номер Автобуса:" HorizontalAlignment="Left"/>
-                    <TextBox x:Name="BusNumberTextBox"/>
+                    <ComboBox Name="BusComboBox" DisplayMemberPath="Name"></ComboBox>
                 </StackPanel>
 
             </StackPanel>

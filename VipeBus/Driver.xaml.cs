@@ -1,53 +1,72 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using static VipeBus.Driver;
+using VipeBus.Core;
 
 namespace VipeBus
 {
     public partial class Driver : Window
     {
-        private ObservableCollection<Drivers> drivers;
-
+        private VipeBusContext _context;
 
         public Driver()
         {
             InitializeComponent();
-            drivers = new ObservableCollection<Drivers>(); // Также изменено на ObservableCollection<Driver>
-            tripDataGrid.ItemsSource = drivers;
+
+            _context = new VipeBusContext();
+            var result = _context.Drivers.Include("Bus").ToList();
+            tripDataGrid.ItemsSource = result;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            HeadWindow headWindow = new HeadWindow();
-            headWindow.Title = "Маршруты";
+            var headWindow = new HeadWindow
+            {
+                Title = "Маршруты"
+            };
             headWindow.Show();
             this.Close();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            NewDriver newdriver = new NewDriver(drivers);
-            newdriver.Title = "Добавить водителя";
+            var newdriver = new NewDriver
+            {
+                Title = "Добавить водителя"
+            };
             newdriver.Show();
         }
-        public class Drivers
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            public string LastName { get; set; }
-            public string FirstName { get; set; }
-            public string MiddleName { get; set; }
-            public string BusNumber { get; set; }
+            if (tripDataGrid.SelectedItem != null)
+            {
+                var selectedDriver = (Application.Entities.Drivers.Driver)tripDataGrid.SelectedItem;
+
+                if (!_context.Drivers.Local.Contains(selectedDriver))
+                {
+                    _context.Drivers.Attach(selectedDriver);
+                }
+
+                if (MessageBox.Show($"Вы уверены, что хотите удалить водителя {selectedDriver.FirstName} {selectedDriver.LastName}?", "Подтверждение удаления", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                {
+                    _context.Drivers.Remove(selectedDriver);
+                    _context.SaveChanges();
+
+                    // Refresh the DataGrid
+                    tripDataGrid.ItemsSource = _context.Drivers.Include("Bus").ToList();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Выберите водителя для удаления.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+            _context.Dispose(); // Dispose the context when the window is closed
         }
     }
 }

@@ -2,6 +2,7 @@
 using VipeBus.Application.Entities.Buses;
 using VipeBus.Application.Entities.Cities;
 using VipeBus.Application.Entities.Companies;
+using VipeBus.Application.Entities.Drivers;
 using VipeBus.Application.Entities.Routes;
 using VipeBus.Application.Entities.Trips;
 using VipeBus.Application.Entities.Users;
@@ -39,5 +40,7 @@ namespace VipeBus.Core
         public DbSet<Route> Routes { get; set; }
 
         public DbSet<Trip> Trips { get; set; }
+
+        public DbSet<Driver> Drivers { get; set; }
     }
 }

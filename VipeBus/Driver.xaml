@@ -22,7 +22,14 @@
                 <DataGridTextColumn Header="Фамилия" Binding="{Binding LastName}" Width="*"/>
                 <DataGridTextColumn Header="Имя" Binding="{Binding FirstName}" Width="*"/>
                 <DataGridTextColumn Header="Отчество" Binding="{Binding MiddleName}" Width="*"/>
-                <DataGridTextColumn Header="Номер автобуса" Binding="{Binding BusNumber}" Width="*"/>
+                <DataGridTextColumn Header="Номер автобуса" Binding="{Binding Bus.Name}" Width="*"/>
+                <DataGridTemplateColumn Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Удалить" Click="DeleteButton_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
         <Button Content="Добавить водителя" HorizontalAlignment="Left" Margin="34,83,0,0" VerticalAlignment="Top" Width="241" Height="44" FontSize="16" Click="Button_Click_1"/>

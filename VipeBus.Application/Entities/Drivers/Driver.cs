@@ -1,18 +1,17 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using VipeBus.Application.Entities.Buses;
 
-namespace VipeBus.Application.Entities.Users
+namespace VipeBus.Application.Entities.Drivers
 {
-    public class User
+    public class Driver
     {
         public int Id { get; set; }
 
         public string Name { get; set; }
 
-        public string Password { get; set; }
+        public int BusId { get; set; }
 
-        public string Email { get; set; }
-
-        public string PhoneNumber { get; set; }
+        public virtual Bus Bus { get; set; }
 
         [NotMapped]
         public string LastName => Name.Split(' ')[0];
