@@ -143,5 +143,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VipeBus.Application\VipeBus.Application.csproj">
+      <Project>{83d8be2c-3ea1-4138-a968-541ba32f456b}</Project>
+      <Name>VipeBus.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VipeBus.Core\VipeBus.Core.csproj">
+      <Project>{d1951b89-8c55-4122-9e4f-245a859000a9}</Project>
+      <Name>VipeBus.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

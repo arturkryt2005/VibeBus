@@ -5,6 +5,10 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VipeBus", "VipeBus\VipeBus.csproj", "{DCA81FA3-D93B-459F-B5D2-1B7EC176819C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VipeBus.Application", "VipeBus.Application\VipeBus.Application.csproj", "{83D8BE2C-3EA1-4138-A968-541BA32F456B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VipeBus.Core", "VipeBus.Core\VipeBus.Core.csproj", "{D1951B89-8C55-4122-9E4F-245A859000A9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{DCA81FA3-D93B-459F-B5D2-1B7EC176819C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCA81FA3-D93B-459F-B5D2-1B7EC176819C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DCA81FA3-D93B-459F-B5D2-1B7EC176819C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83D8BE2C-3EA1-4138-A968-541BA32F456B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83D8BE2C-3EA1-4138-A968-541BA32F456B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83D8BE2C-3EA1-4138-A968-541BA32F456B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83D8BE2C-3EA1-4138-A968-541BA32F456B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1951B89-8C55-4122-9E4F-245A859000A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1951B89-8C55-4122-9E4F-245A859000A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1951B89-8C55-4122-9E4F-245A859000A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1951B89-8C55-4122-9E4F-245A859000A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
