@@ -41,6 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Buses\Bus.cs" />
+    <Compile Include="Entities\Cities\City.cs" />
+    <Compile Include="Entities\Companies\Company.cs" />
+    <Compile Include="Entities\Routes\Route.cs" />
+    <Compile Include="Entities\Trips\Trip.cs" />
     <Compile Include="Entities\Users\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -55,6 +55,10 @@
     <Compile Include="Migrations\202312021719529_Initial.designer.cs">
       <DependentUpon>202312021719529_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202312021739469_AddModels.cs" />
+    <Compile Include="Migrations\202312021739469_AddModels.designer.cs">
+      <DependentUpon>202312021739469_AddModels.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VipeBusContext.cs" />
@@ -72,6 +76,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202312021719529_Initial.resx">
       <DependentUpon>202312021719529_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202312021739469_AddModels.resx">
+      <DependentUpon>202312021739469_AddModels.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
