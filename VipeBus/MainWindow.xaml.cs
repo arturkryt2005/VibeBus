@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using VipeBus.Core;
 
 namespace VipeBus
 {
@@ -20,29 +9,35 @@ namespace VipeBus
     /// </summary>
     public partial class MainWindow : Window
     {
+        private VipeBusContext _context;
+
         public MainWindow()
         {
             InitializeComponent();
         }
+
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            
-        
-            // Проверка логина и пароля
-            if (UserLog.Text == "user" && UserPas.Text == "password")
+            using (_context = new VipeBusContext())
             {
-                MessageBox.Show("Вход выполнен успешно!");
+                foreach (var user in _context.Users.ToList())
+                {
+                    if (UserLog.Text == user.Name && UserPas.Text == user.Password)
+                    {
+                        MessageBox.Show("Вход выполнен успешно!");
 
-                // Открываем новое окно или выполняем другие действия при успешной авторизации
-                HeadWindow headWindow = new HeadWindow();
-                headWindow.Title = "VipeBus";
-                headWindow.Show();
-                this.Close();
-                // Закрываем текущее окно
-                Close();
-            }
-            else
-            {
+                        // Открываем новое окно или выполняем другие действия при успешной авторизации
+                        HeadWindow headWindow = new HeadWindow();
+                        headWindow.Title = "VipeBus";
+                        headWindow.Show();
+                        this.Close();
+                        // Закрываем текущее окно
+                        Close();
+
+                        return;
+                    }
+                }
+
                 MessageBox.Show("Неверное имя пользователя или пароль.");
             }
         }
