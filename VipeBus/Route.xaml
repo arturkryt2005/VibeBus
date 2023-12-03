@@ -19,9 +19,10 @@
         </Label>
         <DataGrid x:Name="routeDataGrid" AutoGenerateColumns="False" Margin="316,39,44,61">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Откуда" Binding="{Binding City}" Width="*"/>
-                <DataGridTextColumn Header="Куда" Binding="{Binding City2}" Width="*"/>
-                <DataGridTextColumn Header="Растояние" Binding="{Binding Distance}" Width="*"/>
+                <DataGridTextColumn Header="Откуда" Binding="{Binding DeparturePoint.Name}" Width="*"/>
+                <DataGridTextColumn Header="Куда" Binding="{Binding DestinationPoint.Name}" Width="*"/>
+                <DataGridTextColumn Header="Время отбытия" Binding="{Binding DepartureTime}" Width="*"/>
+                <DataGridTextColumn Header="Время прибытия" Binding="{Binding DestinationTime}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button Content="Добавить маршрут" x:Name="NewRouteButton" HorizontalAlignment="Left" Margin="34,177,0,0" VerticalAlignment="Top" Width="241" Height="44" FontSize="16" Click="NewRouteButton_Click"/>
