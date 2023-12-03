@@ -1,39 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using VipeBus.Core;
 
 namespace VipeBus
 {
     public partial class NewCity : Window
     {
-        private ObservableCollection<City.Cities> cities;
+        private City City;
 
-        public NewCity(ObservableCollection<City.Cities> cities)
+        private VipeBusContext _context;
+
+        public NewCity(City city)
         {
             InitializeComponent();
-            this.cities = cities;
+
+            City = city;
+            _context = new VipeBusContext();
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            City.Cities newCity = new City.Cities
+            Application.Entities.Cities.City newCity = new Application.Entities.Cities.City()
             {
-                CityName = cityTextBox.Text,
-                AdditionalInfo = "Дополнительная информация" // Можно изменить на нужное вам значение
+                Name = cityTextBox.Text,
+                Region = regionTextBox.Text
             };
 
-            cities.Add(newCity);
+            _context.Cities.Add(newCity);
+            _context.SaveChanges();
+
+            City.cityDataGrid.ItemsSource = _context.Cities
+                .ToList();
 
             // Закрыть окно
             this.Close();
