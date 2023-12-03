@@ -2,6 +2,9 @@
 using System.Linq;
 using System.Windows;
 using VipeBus.Core;
+using System;
+
+
 
 namespace VipeBus
 {
@@ -25,6 +28,31 @@ namespace VipeBus
                 Title = "Добавить город"
             };
             newCity.Show();
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (cityDataGrid.SelectedItem != null)
+            {
+                var selectedCity = (Application.Entities.Cities.City)cityDataGrid.SelectedItem;
+
+                selectedCity.Name = null;
+
+                if (!_context.Cities.Local.Contains(selectedCity))
+                {
+                    _context.Cities.Attach(selectedCity);
+                }
+
+                if (MessageBox.Show($"Вы уверены, что хотите удалить город {selectedCity.Name} ?", "Подтверждение удаления", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                {
+                    _context.Cities.Remove(selectedCity);
+                    _context.SaveChanges();
+
+                    cityDataGrid.ItemsSource = _context.Cities.Include("Name").ToList();
+                }
+            }
+            else
+                MessageBox.Show("Выберите водителя для удаления.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
