@@ -26,12 +26,13 @@ namespace VipeBus
                     {
                         MessageBox.Show("Вход выполнен успешно!");
 
-                        // Открываем новое окно или выполняем другие действия при успешной авторизации
-                        HeadWindow headWindow = new HeadWindow();
-                        headWindow.Title = "VipeBus";
+                        var headWindow = new HeadWindow
+                        {
+                            Title = "VipeBus"
+                        };
                         headWindow.Show();
                         this.Close();
-                        // Закрываем текущее окно
+
                         Close();
 
                         return;

@@ -80,8 +80,7 @@ namespace VipeBus
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-            // Закрыть окно
-            this.Close();
+            Close();
         }
     }
 }

@@ -80,8 +80,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="City.xaml.cs">
-      <DependentUpon>City.xaml</DependentUpon>
+    <Compile Include="CityWindow.xaml.cs">
+      <DependentUpon>CityWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Driver.xaml.cs">
       <DependentUpon>Driver.xaml</DependentUpon>
@@ -98,7 +98,7 @@
     <Compile Include="Route.xaml.cs">
       <DependentUpon>Route.xaml</DependentUpon>
     </Compile>
-    <Page Include="City.xaml">
+    <Page Include="CityWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

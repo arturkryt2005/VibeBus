@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace VipeBus
 {
@@ -49,7 +37,7 @@ namespace VipeBus
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            City city = new City();
+            CityWindow city = new CityWindow();
             city.Show();
             this.Close();
         }

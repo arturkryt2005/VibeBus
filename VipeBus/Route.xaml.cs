@@ -32,7 +32,7 @@ namespace VipeBus
                 Title = "Главная"
             };
             headWindow.Show();
-            this.Close();
+            Close();
         }
     }
 }
