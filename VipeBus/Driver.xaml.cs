@@ -14,8 +14,7 @@ namespace VipeBus
             InitializeComponent();
 
             _context = new VipeBusContext();
-            var result = _context.Drivers.Include("Bus").ToList();
-            tripDataGrid.ItemsSource = result;
+            tripDataGrid.ItemsSource = _context.Drivers.Include("Bus").ToList();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -24,8 +23,9 @@ namespace VipeBus
             {
                 Title = "Маршруты"
             };
+
             headWindow.Show();
-            this.Close();
+            Close();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -34,6 +34,7 @@ namespace VipeBus
             {
                 Title = "Добавить водителя"
             };
+
             newdriver.Show();
         }
 
@@ -46,29 +47,24 @@ namespace VipeBus
                 selectedDriver.Bus = null;
 
                 if (!_context.Drivers.Local.Contains(selectedDriver))
-                {
                     _context.Drivers.Attach(selectedDriver);
-                }
 
                 if (MessageBox.Show($"Вы уверены, что хотите удалить водителя {selectedDriver.FirstName} {selectedDriver.LastName}?", "Подтверждение удаления", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
                 {
                     _context.Drivers.Remove(selectedDriver);
                     _context.SaveChanges();
 
-                    // Refresh the DataGrid
                     tripDataGrid.ItemsSource = _context.Drivers.Include("Bus").ToList();
                 }
             }
             else
-            {
                 MessageBox.Show("Выберите водителя для удаления.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
         }
 
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
-            _context.Dispose(); // Dispose the context when the window is closed
+            _context.Dispose();
         }
     }
 }

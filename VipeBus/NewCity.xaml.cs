@@ -1,26 +1,27 @@
 ﻿using System.Linq;
 using System.Windows;
+using VipeBus.Application.Entities.Cities;
 using VipeBus.Core;
 
 namespace VipeBus
 {
     public partial class NewCity : Window
     {
-        private City City;
+        private CityWindow _city;
 
         private VipeBusContext _context;
 
-        public NewCity(City city)
+        public NewCity(CityWindow city)
         {
             InitializeComponent();
 
-            City = city;
+            _city = city;
             _context = new VipeBusContext();
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            Application.Entities.Cities.City newCity = new Application.Entities.Cities.City()
+            City newCity = new City()
             {
                 Name = cityTextBox.Text,
                 Region = regionTextBox.Text
@@ -29,17 +30,15 @@ namespace VipeBus
             _context.Cities.Add(newCity);
             _context.SaveChanges();
 
-            City.cityDataGrid.ItemsSource = _context.Cities
+            _city.cityDataGrid.ItemsSource = _context.Cities
                 .ToList();
 
-            // Закрыть окно
-            this.Close();
+            Close();
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-            // Закрыть окно
-            this.Close();
+            Close();
         }
     }
 }
