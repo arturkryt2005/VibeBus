@@ -1,49 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using VipeBus.Core;
 
 namespace VipeBus
 {
     public partial class Route : Window
     {
-        private ObservableCollection<Routes> routes;
+        private readonly VipeBusContext _context;
 
         public Route()
         {
             InitializeComponent();
-            routes = new ObservableCollection<Routes>();
-            routeDataGrid.ItemsSource = routes;
-        }
 
-        public class Routes
-        {
-            public string City { get; set; }
-            public string City2 { get; set; }
-            public int Distance { get; set; }
+            _context = new VipeBusContext();
+            routeDataGrid.ItemsSource = _context.Routes.ToList();
         }
 
         private void NewRouteButton_Click(object sender, RoutedEventArgs e)
         {
-            NewRoute newRoute = new NewRoute(routes);
-            newRoute.Title = "Добавить маршрут";
+            var newRoute = new NewRoute(this)
+            {
+                Title = "Добавить маршрут"
+            };
             newRoute.Show();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            HeadWindow headWindow = new HeadWindow();
-            headWindow.Title = "Главная";
+            var headWindow = new HeadWindow
+            {
+                Title = "Главная"
+            };
             headWindow.Show();
             this.Close();
         }
