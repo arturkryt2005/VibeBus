@@ -63,6 +63,10 @@
     <Compile Include="Migrations\202312021849267_AddDriver.designer.cs">
       <DependentUpon>202312021849267_AddDriver.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202312031308086_DeleteCompany.cs" />
+    <Compile Include="Migrations\202312031308086_DeleteCompany.designer.cs">
+      <DependentUpon>202312031308086_DeleteCompany.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VipeBusContext.cs" />
@@ -86,6 +90,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202312021849267_AddDriver.resx">
       <DependentUpon>202312021849267_AddDriver.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202312031308086_DeleteCompany.resx">
+      <DependentUpon>202312031308086_DeleteCompany.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

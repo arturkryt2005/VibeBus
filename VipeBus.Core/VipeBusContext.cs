@@ -1,7 +1,6 @@
 ﻿using System.Data.Entity;
 using VipeBus.Application.Entities.Buses;
 using VipeBus.Application.Entities.Cities;
-using VipeBus.Application.Entities.Companies;
 using VipeBus.Application.Entities.Drivers;
 using VipeBus.Application.Entities.Routes;
 using VipeBus.Application.Entities.Trips;
@@ -30,8 +29,6 @@ namespace VipeBus.Core
         }
 
         public DbSet<User> Users { get; set; }
-
-        public DbSet<Company> Companies { get; set; }
 
         public DbSet<Bus> Buses { get; set; }
 
