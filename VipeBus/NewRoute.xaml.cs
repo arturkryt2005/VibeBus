@@ -62,6 +62,8 @@ namespace VipeBus
                     _context.SaveChanges();
 
                     _route.routeDataGrid.ItemsSource = _context.Routes
+                        .Include("DeparturePoint")
+                        .Include("DestinationPoint")
                         .ToList();
 
                     MessageBox.Show($"Маршрут {((Application.Entities.Cities.City)FromComboBox.SelectedItem).Name} - {((Application.Entities.Cities.City)toComboBox.SelectedItem).Name} успешно добавлен.");

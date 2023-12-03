@@ -20,8 +20,8 @@
 
         <DataGrid x:Name="cityDataGrid" AutoGenerateColumns="False" Margin="316,39,44,61">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Город" Binding="{Binding CityName}" Width="*"/>
-
+                <DataGridTextColumn Header="Город" Binding="{Binding Name}" Width="*"/>
+                <DataGridTextColumn Header="Регион" Binding="{Binding Region}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
 

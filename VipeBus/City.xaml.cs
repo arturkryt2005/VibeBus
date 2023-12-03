@@ -1,35 +1,38 @@
 ﻿using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows;
+using VipeBus.Core;
 
 namespace VipeBus
 {
     public partial class City : Window
     {
-        private ObservableCollection<Cities> cities;
+        private VipeBusContext _context;
 
         public City()
         {
             InitializeComponent();
-            cities = new ObservableCollection<Cities>();
-            cityDataGrid.ItemsSource = cities;
-        }
 
-        public class Cities
-        {
-            public string CityName { get; set; }
-            public string AdditionalInfo { get; set; } // Новый столбец
+            _context = new VipeBusContext();
+            cityDataGrid.ItemsSource = _context.Cities
+                .ToList();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            NewCity newCity = new NewCity(cities);
-            newCity.Title = "Добавить город";
+            NewCity newCity = new NewCity(this)
+            {
+                Title = "Добавить город"
+            };
             newCity.Show();
         }
+
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            HeadWindow headWindow = new HeadWindow();
-            headWindow.Title = "Главная";
+            HeadWindow headWindow = new HeadWindow
+            {
+                Title = "Главная"
+            };
             headWindow.Show();
             this.Close();
         }
