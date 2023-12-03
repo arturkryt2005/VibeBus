@@ -44,7 +44,6 @@
   <ItemGroup>
     <Compile Include="Entities\Buses\Bus.cs" />
     <Compile Include="Entities\Cities\City.cs" />
-    <Compile Include="Entities\Companies\Company.cs" />
     <Compile Include="Entities\Drivers\Driver.cs" />
     <Compile Include="Entities\Routes\Route.cs" />
     <Compile Include="Entities\Trips\Trip.cs" />

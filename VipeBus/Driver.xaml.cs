@@ -30,7 +30,7 @@ namespace VipeBus
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            var newdriver = new NewDriver
+            var newdriver = new NewDriver(this)
             {
                 Title = "Добавить водителя"
             };
@@ -42,6 +42,8 @@ namespace VipeBus
             if (tripDataGrid.SelectedItem != null)
             {
                 var selectedDriver = (Application.Entities.Drivers.Driver)tripDataGrid.SelectedItem;
+
+                selectedDriver.Bus = null;
 
                 if (!_context.Drivers.Local.Contains(selectedDriver))
                 {

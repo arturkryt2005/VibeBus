@@ -10,9 +10,13 @@ namespace VipeBus
     {
         private VipeBusContext _context;
 
-        public NewDriver()
+        private Driver _driver;
+
+        public NewDriver(Driver driver)
         {
             InitializeComponent();
+
+            _driver = driver;
 
             using (_context = new VipeBusContext())
             {
@@ -47,16 +51,28 @@ namespace VipeBus
                     _context.Drivers.Add(newDriver);
                     _context.SaveChanges();
 
+                    _driver.tripDataGrid.ItemsSource = _context.Drivers
+                        .Include("Bus")
+                        .ToList();
+
+                    _context.Dispose();
+
                     MessageBox.Show($"Водитель {newDriver.Name} успешно добавлен.");
                 }
                 catch (Exception exception)
                 {
-                    Console.WriteLine(exception);
+                    Console.WriteLine(exception.Message);
                     throw;
                 }
             }
 
             Close();
+        }
+        
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+            _context.Dispose();
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
