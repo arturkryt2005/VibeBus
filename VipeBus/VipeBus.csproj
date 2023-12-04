@@ -80,11 +80,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BusWindow.xaml.cs">
+      <DependentUpon>BusWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CityWindow.xaml.cs">
       <DependentUpon>CityWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="DriverWindow.xaml.cs">
       <DependentUpon>DriverWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NewBusWindow.xaml.cs">
+      <DependentUpon>NewBusWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="NewCity.xaml.cs">
       <DependentUpon>NewCity.xaml</DependentUpon>
@@ -101,6 +107,10 @@
     <Compile Include="RouteWindow.xaml.cs">
       <DependentUpon>RouteWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="BusWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CityWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -128,6 +138,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="NewBusWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="NewCity.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
