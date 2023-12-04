@@ -26,6 +26,6 @@ namespace VipeBus.Application.Entities.Routes
         public DateTime DestinationTime { get; set; }
 
         [NotMapped]
-        public string Name => $"{DeparturePoint.Name} - {DestinationPoint.Name}";
+        public string Name => $"{DeparturePoint.Name} - {DestinationPoint.Name} [{DepartureTime:g} - {DestinationTime:g}]";
     }
 }
