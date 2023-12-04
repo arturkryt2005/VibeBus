@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 using VipeBus.Application.Entities.Cities;
 
 namespace VipeBus.Application.Entities.Routes
@@ -18,5 +19,8 @@ namespace VipeBus.Application.Entities.Routes
         public DateTime DepartureTime { get; set; }
 
         public DateTime DestinationTime { get; set; }
+
+        [NotMapped]
+        public string Name => $"{DeparturePoint.Name} - {DestinationPoint.Name}";
     }
 }

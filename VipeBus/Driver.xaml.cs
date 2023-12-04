@@ -30,12 +30,12 @@ namespace VipeBus
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            var newdriver = new NewDriver(this)
+            var newDriver = new NewDriver(this)
             {
                 Title = "Добавить водителя"
             };
 
-            newdriver.Show();
+            newDriver.Show();
         }
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)

@@ -5,11 +5,11 @@ using VipeBus.Core;
 
 namespace VipeBus
 {
-    public partial class Route : Window
+    public partial class RouteWindow : Window
     {
         private readonly VipeBusContext _context;
 
-        public Route()
+        public RouteWindow()
         {
             InitializeComponent();
 

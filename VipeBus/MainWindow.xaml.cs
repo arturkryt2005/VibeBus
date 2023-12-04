@@ -14,6 +14,8 @@ namespace VipeBus
         public MainWindow()
         {
             InitializeComponent();
+
+            _context = new VipeBusContext();
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
