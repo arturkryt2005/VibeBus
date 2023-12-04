@@ -7,13 +7,13 @@ namespace VipeBus.Core.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class DeleteCompany : IMigrationMetadata
+    public sealed partial class Initial : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(DeleteCompany));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Initial));
         
         string IMigrationMetadata.Id
         {
-            get { return "202312031308086_DeleteCompany"; }
+            get { return "202312041905453_Initial"; }
         }
         
         string IMigrationMetadata.Source

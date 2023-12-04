@@ -10,7 +10,7 @@ namespace VipeBus.Core
 {
     public class VipeBusContext : DbContext
     {
-        public VipeBusContext() : base("DbConnection")
+        public VipeBusContext() : base("DbVipeBus")
         {
 
         }
@@ -24,6 +24,11 @@ namespace VipeBus.Core
 
             modelBuilder.Entity<Route>()
                 .HasRequired(c => c.DestinationPoint)
+                .WithMany()
+                .WillCascadeOnDelete(false);
+            
+            modelBuilder.Entity<Route>()
+                .HasRequired(c => c.Driver)
                 .WithMany()
                 .WillCascadeOnDelete(false);
         }
