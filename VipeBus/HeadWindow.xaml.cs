@@ -1,54 +1,59 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Linq;
 using System.Windows;
+using VipeBus.Core;
 
 namespace VipeBus
 {
     public partial class HeadWindow : Window
     {
-        public ObservableCollection<Trip> Trips { get; set; }
+        private VipeBusContext _context;
 
         public HeadWindow()
         {
             InitializeComponent();
-            Trips = new ObservableCollection<Trip>();
-            tripDataGrid.ItemsSource = Trips;
+
+            _context = new VipeBusContext();
+            tripDataGrid.ItemsSource = _context.Trips
+                .Include("User")
+                .Include("Bus")
+                .Include("Route")
+                .ToList();
         }
 
         private void AddTripButton_Click(object sender, RoutedEventArgs e)
         {
-            Trips.Add(new Trip());
+            var routeWindow = new NewTripWindow(this)
+            {
+                Title = "Маршруты"
+            };
+            routeWindow.Show();
         }
 
         private void RouteButton_Click(object sender, RoutedEventArgs e)
         {
-            Route routeWindow = new Route();
-            routeWindow.Title = "Маршруты";
+            var routeWindow = new RouteWindow
+            {
+                Title = "Маршруты"
+            };
             routeWindow.Show();
             this.Close();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Driver driverWindow = new Driver();
-            driverWindow.Title = "Водители";
+            var driverWindow = new Driver
+            {
+                Title = "Водители"
+            };
             driverWindow.Show();
             this.Close();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            CityWindow city = new CityWindow();
+            var city = new CityWindow();
             city.Show();
             this.Close();
         }
-    }
-
-    public class Trip
-    {
-        public string DepartureCity { get; set; }
-        public string ArrivalCity { get; set; }
-        public string Date { get; set; }
-        public string Time { get; set; }
-        public string DriverName { get; set; }
     }
 }

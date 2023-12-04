@@ -1,10 +1,6 @@
-﻿using System.Collections.ObjectModel;
-using System.Linq;
+﻿using System.Linq;
 using System.Windows;
 using VipeBus.Core;
-using System;
-
-
 
 namespace VipeBus
 {
@@ -23,7 +19,7 @@ namespace VipeBus
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            NewCity newCity = new NewCity(this)
+            var newCity = new NewCity(this)
             {
                 Title = "Добавить город"
             };
@@ -35,15 +31,12 @@ namespace VipeBus
             if (cityDataGrid.SelectedItem != null)
             {
                 var selectedCity = (Application.Entities.Cities.City)cityDataGrid.SelectedItem;
-
                 selectedCity.Name = null;
 
                 if (!_context.Cities.Local.Contains(selectedCity))
-                {
                     _context.Cities.Attach(selectedCity);
-                }
 
-                if (MessageBox.Show($"Вы уверены, что хотите удалить город {selectedCity.Name} ?", "Подтверждение удаления", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                if (MessageBox.Show($"Вы уверены, что хотите удалить город?", "Подтверждение удаления", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
                 {
                     _context.Cities.Remove(selectedCity);
                     _context.SaveChanges();
@@ -52,12 +45,12 @@ namespace VipeBus
                 }
             }
             else
-                MessageBox.Show("Выберите водителя для удаления.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Выберите город для удаления.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            HeadWindow headWindow = new HeadWindow
+            var headWindow = new HeadWindow
             {
                 Title = "Главная"
             };

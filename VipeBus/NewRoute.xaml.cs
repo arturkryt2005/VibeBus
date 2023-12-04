@@ -9,9 +9,9 @@ namespace VipeBus
     {
         private VipeBusContext _context;
 
-        private Route _route;
+        private RouteWindow _route;
 
-        public NewRoute(Route route)
+        public NewRoute(RouteWindow route)
         {
             InitializeComponent();
 

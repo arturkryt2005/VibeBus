@@ -95,8 +95,11 @@
     <Compile Include="NewRoute.xaml.cs">
       <DependentUpon>NewRoute.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Route.xaml.cs">
-      <DependentUpon>Route.xaml</DependentUpon>
+    <Compile Include="NewTripWindow.xaml.cs">
+      <DependentUpon>NewTripWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RouteWindow.xaml.cs">
+      <DependentUpon>RouteWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="CityWindow.xaml">
       <SubType>Designer</SubType>
@@ -137,7 +140,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Route.xaml">
+    <Page Include="NewTripWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RouteWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
