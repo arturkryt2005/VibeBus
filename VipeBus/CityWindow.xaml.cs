@@ -48,7 +48,8 @@ namespace VipeBus
                     _context.Cities.Remove(selectedCity);
                     _context.SaveChanges();
 
-                    cityDataGrid.ItemsSource = _context.Cities.Include("Name").ToList();
+                    cityDataGrid.ItemsSource = _context.Cities
+                        .ToList();
                 }
             }
             else
