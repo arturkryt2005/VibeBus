@@ -7,7 +7,7 @@ namespace VipeBus
 {
     public partial class NewCity : Window
     {
-        private CityWindow _city;
+        private readonly CityWindow _city;
 
         private VipeBusContext _context;
 
@@ -21,19 +21,10 @@ namespace VipeBus
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(cityTextBox.Text))
-            {
-                MessageBox.Show("Введите название города.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            if (CheckingConditions()) 
                 return;
-            }
 
-            if (string.IsNullOrWhiteSpace(regionTextBox.Text))
-            {
-                MessageBox.Show("Введите регион города.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-
-            City newCity = new City()
+            var newCity = new City
             {
                 Name = cityTextBox.Text,
                 Region = regionTextBox.Text
@@ -46,6 +37,29 @@ namespace VipeBus
                 .ToList();
 
             Close();
+        }
+
+        private bool CheckingConditions()
+        {
+            if (string.IsNullOrWhiteSpace(cityTextBox.Text))
+            {
+                MessageBox.Show("Введите название города.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return true;
+            }
+
+            if (string.IsNullOrWhiteSpace(regionTextBox.Text))
+            {
+                MessageBox.Show("Введите регион города.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return true;
+            }
+
+            if (_context.Cities.Any(c => c.Name == cityTextBox.Text && c.Region == regionTextBox.Text))
+            {
+                MessageBox.Show("Такой город-регион уже существует.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return true;
+            }
+
+            return false;
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)

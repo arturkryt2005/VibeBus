@@ -10,9 +10,9 @@ namespace VipeBus
     {
         private VipeBusContext _context;
 
-        private Driver _driver;
+        private readonly DriverWindow _driver;
 
-        public NewDriver(Driver driver)
+        public NewDriver(DriverWindow driver)
         {
             InitializeComponent();
 
@@ -76,8 +76,7 @@ namespace VipeBus
                 }
                 catch (Exception exception)
                 {
-                    Console.WriteLine(exception.Message);
-                    throw;
+                    MessageBox.Show(exception.Message);
                 }
             }
 

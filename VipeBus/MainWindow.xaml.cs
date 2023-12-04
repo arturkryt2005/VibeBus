@@ -32,6 +32,7 @@ namespace VipeBus
                         {
                             Title = "VipeBus"
                         };
+
                         headWindow.Show();
                         this.Close();
 

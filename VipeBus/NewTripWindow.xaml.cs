@@ -16,7 +16,7 @@ namespace VipeBus
     {
         private VipeBusContext _context;
 
-        private HeadWindow _headWindow;
+        private readonly HeadWindow _headWindow;
 
         public NewTripWindow(HeadWindow headWindow)
         {
@@ -26,6 +26,11 @@ namespace VipeBus
 
             _context = new VipeBusContext();
 
+            FillComboBox();
+        }
+
+        private void FillComboBox()
+        {
             BusComboBox.ItemsSource = _context.Buses
                 .ToList();
             UserComboBox.ItemsSource = _context.Users
@@ -36,30 +41,8 @@ namespace VipeBus
 
         private void SaveButton_OnClick(object sender, RoutedEventArgs e)
         {
-
-            if (string.IsNullOrWhiteSpace(TripNameTextBox.Text))
-            {
-                MessageBox.Show("Введите наименование поездки.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            if (CheckingConditions()) 
                 return;
-            }
-
-            if (string.IsNullOrWhiteSpace(BusComboBox.Text))
-            {
-                MessageBox.Show("Выберите номер автобуса.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(UserComboBox.Text))
-            {
-                MessageBox.Show("Выберите клиента.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(RouteComboBox.Text))
-            {
-                MessageBox.Show("Выберите маршрут.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
 
             var newTrip = new Trip
             {
@@ -76,8 +59,7 @@ namespace VipeBus
             }
             catch (Exception exception)
             {
-                MessageBox.Show($"{exception.Message}");
-                throw;
+                MessageBox.Show(exception.Message);
             }
 
             _headWindow.tripDataGrid.ItemsSource = _context.Trips
@@ -89,6 +71,35 @@ namespace VipeBus
             MessageBox.Show($"Поездка {newTrip.Name} успешно добавлена.");
 
             Close();
+        }
+
+        private bool CheckingConditions()
+        {
+            if (string.IsNullOrWhiteSpace(TripNameTextBox.Text))
+            {
+                MessageBox.Show("Введите наименование поездки.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return true;
+            }
+
+            if (string.IsNullOrWhiteSpace(BusComboBox.Text))
+            {
+                MessageBox.Show("Выберите номер автобуса.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return true;
+            }
+
+            if (string.IsNullOrWhiteSpace(UserComboBox.Text))
+            {
+                MessageBox.Show("Выберите клиента.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return true;
+            }
+
+            if (string.IsNullOrWhiteSpace(RouteComboBox.Text))
+            {
+                MessageBox.Show("Выберите маршрут.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return true;
+            }
+
+            return false;
         }
 
         private void CancelButton_OnClick(object sender, RoutedEventArgs e)

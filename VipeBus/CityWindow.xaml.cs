@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using System.Windows;
-using VipeBus.Application.Entities.Routes;
 using VipeBus.Core;
 
 namespace VipeBus
@@ -24,6 +23,7 @@ namespace VipeBus
             {
                 Title = "Добавить город"
             };
+
             newCity.Show();
         }
 

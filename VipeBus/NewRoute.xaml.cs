@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Linq;
 using System.Windows;
+using VipeBus.Application.Entities.Cities;
+using VipeBus.Application.Entities.Drivers;
 using VipeBus.Core;
 
 namespace VipeBus
@@ -19,7 +21,6 @@ namespace VipeBus
             _route = route;
 
             FillComboBox();
-
         }
 
         private void FillComboBox()
@@ -38,8 +39,8 @@ namespace VipeBus
             {
                 var newRoute = new Application.Entities.Routes.Route()
                 {
-                    DeparturePointId = ((Application.Entities.Cities.City)FromComboBox.SelectedItem).Id,
-                    DestinationPointId = ((Application.Entities.Cities.City)toComboBox.SelectedItem).Id,
+                    DeparturePointId = ((City)FromComboBox.SelectedItem).Id,
+                    DestinationPointId = ((City)toComboBox.SelectedItem).Id,
                     DepartureTime = new DateTime(departureDatePicker.SelectedDate.Value.Year,
                         departureDatePicker.SelectedDate.Value.Month,
                         departureDatePicker.SelectedDate.Value.Day,
@@ -52,7 +53,7 @@ namespace VipeBus
                         arrivalTimePicker.Value.Value.Hour,
                         arrivalTimePicker.Value.Value.Minute,
                         arrivalTimePicker.Value.Value.Second),
-                    DriverId = ((Application.Entities.Drivers.Driver)DriverComboBox.SelectedItem).Id
+                    DriverId = ((Driver)DriverComboBox.SelectedItem).Id
                 };
 
                 try
@@ -66,13 +67,11 @@ namespace VipeBus
                         .Include("Driver")
                         .ToList();
 
-                    MessageBox.Show(
-                        $"Маршрут {((Application.Entities.Cities.City)FromComboBox.SelectedItem).Name} - {((Application.Entities.Cities.City)toComboBox.SelectedItem).Name} успешно добавлен.");
+                    MessageBox.Show($"Маршрут {((City)FromComboBox.SelectedItem).Name} - {((City)toComboBox.SelectedItem).Name} успешно добавлен.");
                 }
                 catch (Exception exception)
                 {
-                    Console.WriteLine(exception);
-                    throw;
+                    MessageBox.Show(exception.Message);
                 }
             }
 
@@ -82,31 +81,37 @@ namespace VipeBus
         private bool CheckingConditions()
         {
             var errorMessage = string.Empty;
-
+            
             if (FromComboBox.SelectedItem == null)
-                errorMessage += "Заполните место отпраления";
+                errorMessage += "Заполните место отпраления.\n";
 
             if (toComboBox.SelectedItem == null)
-                errorMessage += "Заполните место назначения.";
+                errorMessage += "Заполните место назначения.\n";
 
             if (departureTimePicker.Value == null)
-                errorMessage += "Заполните время отъезда.";
+                errorMessage += "Заполните время отъезда.\n";
 
             if (arrivalTimePicker.Value == null)
-                errorMessage += "Заполните время приезда.";
+                errorMessage += "Заполните время приезда.\n";
 
             if (departureDatePicker.SelectedDate == null)
-                errorMessage += "Заполните дату отправления.";
+                errorMessage += "Заполните дату отправления.\n";
 
             if (arrivalDatePicker.SelectedDate == null)
-                errorMessage += "Заполните дату приезда.";
+                errorMessage += "Заполните дату приезда.\n";
 
-            if(errorMessage == string.Empty)
+            if (departureDatePicker.SelectedDate >= arrivalDatePicker.SelectedDate)
+                errorMessage += "Время отправления должно быть раньше времени прибытия.";
+
+            if (((City)FromComboBox.SelectedItem).Id == ((City)FromComboBox.SelectedItem).Id)
+                errorMessage += "Город отправления и город назначения должны быть разными.";
+
+            if (errorMessage == string.Empty)
                 return false;
 
             else
             {
-                MessageBox.Show(errorMessage);
+                MessageBox.Show(errorMessage, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return true;
             }
         }
