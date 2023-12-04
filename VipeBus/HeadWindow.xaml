@@ -27,11 +27,11 @@
         <!-- Добавляем DataGrid -->
         <DataGrid x:Name="tripDataGrid" AutoGenerateColumns="False" Margin="316,39,44,61">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Город отправления" Binding="{Binding DepartureCity}" Width="*"/>
-                <DataGridTextColumn Header="Город прибытия" Binding="{Binding ArrivalCity}" Width="*"/>
-                <DataGridTextColumn Header="Дата" Binding="{Binding Date}" Width="*"/>
-                <DataGridTextColumn Header="Время" Binding="{Binding Time}" Width="*"/>
-                <DataGridTextColumn Header="ФИО" Binding="{Binding DriverName}" Width="*"/>
+                <DataGridTextColumn Header="Город отправления" Binding="{Binding Route.DeparturePoint.Name}" Width="*"/>
+                <DataGridTextColumn Header="Город прибытия" Binding="{Binding Route.DestinationPoint.Name}" Width="*"/>
+                <DataGridTextColumn Header="Время отбытия" Binding="{Binding Route.DepartureTime}" Width="*"/>
+                <DataGridTextColumn Header="Время прибытия" Binding="{Binding Route.DestinationTime}" Width="*"/>
+                <DataGridTextColumn Header="ФИО" Binding="{Binding User.Name}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
 

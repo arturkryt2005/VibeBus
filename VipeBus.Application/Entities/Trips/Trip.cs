@@ -1,6 +1,4 @@
-﻿using System;
-using VipeBus.Application.Entities.Buses;
-using VipeBus.Application.Entities.Cities;
+﻿using VipeBus.Application.Entities.Buses;
 using VipeBus.Application.Entities.Routes;
 using VipeBus.Application.Entities.Users;
 
