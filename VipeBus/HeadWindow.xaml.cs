@@ -19,7 +19,6 @@ namespace VipeBus
                 .Include("User")
                 .Include("Bus")
                 .Include("Route")
-                .Include("Driver")
                 .ToList();
         }
 
@@ -48,7 +47,7 @@ namespace VipeBus
 
                     if (MessageBox.Show($"Вы уверены, что хотите удалить поездку?", "Подтверждение удаления", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
                     {
-                        _context.Trips.Remove(existingEntity); // Удаляем сущность, а не selectedTrip
+                        _context.Trips.Remove(existingEntity); 
                         _context.SaveChanges();
 
                         tripDataGrid.ItemsSource = _context.Trips.ToList();
