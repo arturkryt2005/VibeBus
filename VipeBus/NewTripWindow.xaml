@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VipeBus"
         mc:Ignorable="d"
-        Title="NewTripWindow" Height="450" Width="450">
+        Title="NewTripWindow" Height="450" Width="450" MinHeight="400" MinWidth="350">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
