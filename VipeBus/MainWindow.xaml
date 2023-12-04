@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VipeBus"
         mc:Ignorable="d"
-        Title="MainWindow" Height="830" Width="1280" MinHeight="830" MinWidth="1280">
+        Title="MainWindow" Height="600" Width="900" MinHeight="600" MinWidth="900">
     <Grid>
         <Rectangle Width="432" Height="370" Fill="LightGray" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <!-- Добавляем текстбоксы внутри прямоугольника -->

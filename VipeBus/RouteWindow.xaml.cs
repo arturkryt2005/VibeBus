@@ -40,7 +40,7 @@ namespace VipeBus
                     _context.Routes.Attach(selectedRoute);
                 }
 
-                if (MessageBox.Show($"Вы уверены, что хотите удалить маршрут из города {selectedRoute.DestinationPoint} в {selectedRoute.DeparturePoint}?", "Подтверждение удаления", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                if (MessageBox.Show($"Вы уверены, что хотите удалить маршрут?", "Подтверждение удаления", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
                 {
                     _context.Routes.Remove(selectedRoute);
                     _context.SaveChanges();

@@ -25,14 +25,39 @@ namespace VipeBus
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            if (FromComboBox.SelectedItem == null 
-                || toComboBox.SelectedItem == null
-                || departureTimePicker.Value == null
-                || arrivalTimePicker.Value == null
-                || departureDatePicker.SelectedDate == null
-                || arrivalDatePicker.SelectedDate == null)
+            if (FromComboBox.SelectedItem == null) 
+                {
+                MessageBox.Show("Заполните место отпраления.");
+                return;
+            }
+
+                if (toComboBox.SelectedItem == null)
             {
-                MessageBox.Show("Не заполнены все поля.");
+                MessageBox.Show("Заполните место назначения.");
+                return;
+            }
+
+                if (departureTimePicker.Value == null)
+            {
+                MessageBox.Show("Заполните время отправления.");
+                return;
+            }
+
+                if (arrivalTimePicker.Value == null)
+                  {
+                MessageBox.Show("Заполните время приезда.");
+                return;
+            }
+
+                if (departureDatePicker.SelectedDate == null)
+                  {
+                MessageBox.Show("Заполните дату отправления.");
+                return;
+            }
+
+                if (arrivalDatePicker.SelectedDate == null)
+            {
+                MessageBox.Show("Заполните дату приезда.");
                 return;
             }
 

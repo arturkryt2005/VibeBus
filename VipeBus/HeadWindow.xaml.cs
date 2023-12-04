@@ -1,6 +1,8 @@
-﻿using System.Linq;
+﻿using System.Data.Entity;
+using System.Linq;
 using System.Windows;
 using VipeBus.Core;
+
 
 namespace VipeBus
 {
@@ -27,6 +29,35 @@ namespace VipeBus
                 Title = "Маршруты"
             };
             routeWindow.Show();
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (tripDataGrid.SelectedItem != null)
+            {
+                var selectedTrip = (Application.Entities.Trips.Trip)tripDataGrid.SelectedItem;
+
+                selectedTrip.Name = null;
+
+                var existingEntity = _context.Trips.Find(selectedTrip.Id);
+
+                if (existingEntity != null)
+                {
+                    _context.Entry(existingEntity).CurrentValues.SetValues(selectedTrip);
+
+                    if (MessageBox.Show($"Вы уверены, что хотите удалить поездку?", "Подтверждение удаления", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                    {
+                        _context.Trips.Remove(existingEntity); 
+                        _context.SaveChanges();
+
+                        tripDataGrid.ItemsSource = _context.Trips.ToList();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Выберите водителя для удаления.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void RouteButton_Click(object sender, RoutedEventArgs e)

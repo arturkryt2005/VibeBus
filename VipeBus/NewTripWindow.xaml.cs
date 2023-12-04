@@ -36,6 +36,31 @@ namespace VipeBus
 
         private void SaveButton_OnClick(object sender, RoutedEventArgs e)
         {
+
+            if (string.IsNullOrWhiteSpace(TripNameTextBox.Text))
+            {
+                MessageBox.Show("Введите наименование поездки.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(BusComboBox.Text))
+            {
+                MessageBox.Show("Выберите номер автобуса.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(UserComboBox.Text))
+            {
+                MessageBox.Show("Выберите клиента.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(RouteComboBox.Text))
+            {
+                MessageBox.Show("Выберите маршрут.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
             var newTrip = new Trip
             {
                 Name = TripNameTextBox.Text,

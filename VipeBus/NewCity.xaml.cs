@@ -21,6 +21,18 @@ namespace VipeBus
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(cityTextBox.Text))
+            {
+                MessageBox.Show("Введите название города.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(regionTextBox.Text))
+            {
+                MessageBox.Show("Введите регион города.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
             City newCity = new City()
             {
                 Name = cityTextBox.Text,

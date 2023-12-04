@@ -29,12 +29,27 @@ namespace VipeBus
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            if (FirstNameTextBox.Text == string.Empty
-                || LastNameTextBox.Text == string.Empty
-                || MiddleNameTextBox.Text == string.Empty
-                || BusComboBox.SelectedItem == null)
+            if (string.IsNullOrWhiteSpace(LastNameTextBox.Text))
             {
-                MessageBox.Show("Не заполнены все поля.");
+                MessageBox.Show("Введите фамилию водителя.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(FirstNameTextBox.Text))
+            {
+                MessageBox.Show("Введите имя водителя.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(MiddleNameTextBox.Text))
+            {
+                MessageBox.Show("Введите отчество водителя.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(BusComboBox.Text))
+            {
+                MessageBox.Show("Выберите номер автобуса.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
