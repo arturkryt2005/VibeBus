@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Windows;
+using VipeBus.Application.Entities.Routes;
 using VipeBus.Core;
 
 namespace VipeBus
@@ -32,6 +33,12 @@ namespace VipeBus
             {
                 var selectedCity = (Application.Entities.Cities.City)cityDataGrid.SelectedItem;
                 selectedCity.Name = null;
+
+                if (_context.Routes.Any(route => route.DeparturePointId == selectedCity.Id || route.DestinationPointId == selectedCity.Id))
+                {
+                    MessageBox.Show("Нельзя удалить город, который задействован в маршруте.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
 
                 if (!_context.Cities.Local.Contains(selectedCity))
                     _context.Cities.Attach(selectedCity);
