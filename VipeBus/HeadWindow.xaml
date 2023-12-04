@@ -32,6 +32,13 @@
                 <DataGridTextColumn Header="Время отбытия" Binding="{Binding Route.DepartureTime}" Width="*"/>
                 <DataGridTextColumn Header="Время прибытия" Binding="{Binding Route.DestinationTime}" Width="*"/>
                 <DataGridTextColumn Header="ФИО" Binding="{Binding User.Name}" Width="*"/>
+                <DataGridTemplateColumn Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Удалить" Click="DeleteButton_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
 
