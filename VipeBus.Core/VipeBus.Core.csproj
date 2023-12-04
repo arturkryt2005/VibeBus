@@ -51,21 +51,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\202312021719529_Initial.cs" />
-    <Compile Include="Migrations\202312021719529_Initial.designer.cs">
-      <DependentUpon>202312021719529_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202312021739469_AddModels.cs" />
-    <Compile Include="Migrations\202312021739469_AddModels.designer.cs">
-      <DependentUpon>202312021739469_AddModels.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202312021849267_AddDriver.cs" />
-    <Compile Include="Migrations\202312021849267_AddDriver.designer.cs">
-      <DependentUpon>202312021849267_AddDriver.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202312031308086_DeleteCompany.cs" />
-    <Compile Include="Migrations\202312031308086_DeleteCompany.designer.cs">
-      <DependentUpon>202312031308086_DeleteCompany.cs</DependentUpon>
+    <Compile Include="Migrations\202312041905453_Initial.cs" />
+    <Compile Include="Migrations\202312041905453_Initial.designer.cs">
+      <DependentUpon>202312041905453_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -82,17 +70,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202312021719529_Initial.resx">
-      <DependentUpon>202312021719529_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202312021739469_AddModels.resx">
-      <DependentUpon>202312021739469_AddModels.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202312021849267_AddDriver.resx">
-      <DependentUpon>202312021849267_AddDriver.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202312031308086_DeleteCompany.resx">
-      <DependentUpon>202312031308086_DeleteCompany.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202312041905453_Initial.resx">
+      <DependentUpon>202312041905453_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
