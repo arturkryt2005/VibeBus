@@ -86,5 +86,12 @@ namespace VipeBus
             city.Show();
             this.Close();
         }
+
+        private void BusButton_Click(object sender, RoutedEventArgs e)
+        {
+            var city = new BusWindow();
+            city.Show();
+            this.Close();
+        }
     }
 }

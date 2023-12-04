@@ -41,6 +41,7 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
+        <Button Content="Автобусы" HorizontalAlignment="Left" Margin="40,313,0,0" VerticalAlignment="Top" Width="241" Height="45" FontSize="16" Click="BusButton_Click"/>
 
     </Grid>
 </Window>
