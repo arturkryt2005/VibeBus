@@ -5,11 +5,11 @@ using VipeBus.Core;
 
 namespace VipeBus
 {
-    public partial class Driver : Window
+    public partial class DriverWindow : Window
     {
         private VipeBusContext _context;
 
-        public Driver()
+        public DriverWindow()
         {
             InitializeComponent();
 

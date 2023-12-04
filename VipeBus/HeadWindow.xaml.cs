@@ -72,7 +72,7 @@ namespace VipeBus
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var driverWindow = new Driver
+            var driverWindow = new DriverWindow
             {
                 Title = "Водители"
             };
