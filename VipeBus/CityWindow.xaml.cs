@@ -31,10 +31,16 @@ namespace VipeBus
             if (cityDataGrid.SelectedItem != null)
             {
                 var selectedCity = (Application.Entities.Cities.City)cityDataGrid.SelectedItem;
-                selectedCity.Name = null;
 
                 if (!_context.Cities.Local.Contains(selectedCity))
                     _context.Cities.Attach(selectedCity);
+
+                if (_context.Routes.Any(r =>
+                        r.DeparturePointId == selectedCity.Id || r.DestinationPoint.Id == selectedCity.Id))
+                {
+                    MessageBox.Show($"Нельзя удалить город, так как он добавлен в маршрут.");
+                    return;
+                }
 
                 if (MessageBox.Show($"Вы уверены, что хотите удалить город?", "Подтверждение удаления", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
                 {
