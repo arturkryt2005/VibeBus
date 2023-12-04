@@ -1,4 +1,5 @@
 ﻿using VipeBus.Application.Entities.Buses;
+using VipeBus.Application.Entities.Drivers;
 using VipeBus.Application.Entities.Routes;
 using VipeBus.Application.Entities.Users;
 
@@ -21,5 +22,6 @@ namespace VipeBus.Application.Entities.Trips
         public int RouteId { get; set; }
 
         public virtual Route Route { get; set; }
+
     }
 }
