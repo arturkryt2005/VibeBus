@@ -6,17 +6,23 @@
         xmlns:local="clr-namespace:VipeBus"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="900" MinHeight="600" MinWidth="900">
-    <Grid>
-        <Rectangle Width="432" Height="370" Fill="LightGray" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <!-- Добавляем текстбоксы внутри прямоугольника -->
-        <TextBox x:Name="UserLog" Height="30" Margin="371,0,371,0" VerticalAlignment="Center" />
-        <TextBox x:Name="UserPas" Width="158" Height="30" Margin="0,354,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" />
+    <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
 
-        <!-- Добавляем кнопку внутри прямоугольника -->
-        <Button Content="Войти" Width="196" Height="54" Margin="0,408,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Click="LoginButton_Click" />
-        <Label Content="Логин" HorizontalAlignment="Center" Margin="0,246,0,0" VerticalAlignment="Top"/>
-        <Label Content="Пароль" HorizontalAlignment="Center" Margin="0,328,0,0" VerticalAlignment="Top"/>
-        <Label Content="Вход" HorizontalAlignment="Center" Margin="0,164,0,0" VerticalAlignment="Top" Height="54" Width="92" FontSize="36"/>
+            <TextBox x:Name="UserLog" Width="250" Height="20" Grid.Row="1" HorizontalAlignment="Center" Margin="25,0,25,0" />
+            <PasswordBox x:Name="UserPas" Width="250" Height="20" Grid.Row="3" HorizontalAlignment="Center" Grid.Column="1" Margin="25,5,25,8" Grid.RowSpan="2" />
 
-    </Grid>
+            <Button Content="Войти" Width="250" Height="20" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" Margin="25,10,25,-10" Click="LoginButton_Click"/>
+
+            <TextBlock x:Name="ErrorMessage" Foreground="Red" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" Margin="5" Visibility="Collapsed"/>
+            <Label  Grid.Column="1" Content="Вход в систему" HorizontalAlignment="Center" VerticalAlignment="Center" Height="28" Width="96"/>
+        </Grid>
+    </WrapPanel>
 </Window>

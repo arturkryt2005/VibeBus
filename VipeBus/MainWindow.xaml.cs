@@ -24,13 +24,13 @@ namespace VipeBus
             {
                 foreach (var user in _context.Users.ToList())
                 {
-                    if (UserLog.Text == user.Name && UserPas.Text == user.Password)
+                    if (UserLog.Text == user.Name && UserPas.Password == user.Password)
                     {
                         MessageBox.Show("Вход выполнен успешно!");
 
                         var headWindow = new HeadWindow
                         {
-                            Title = "VipeBus"
+                            Title = "VibeBus"
                         };
 
                         headWindow.Show();
