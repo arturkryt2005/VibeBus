@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Автобусы" Height="450" Width="800">
+        Title="Автобусы" Height="450" Width="800" MinHeight="600" MinWidth="900">
     <Grid>
         <Label Content="UrbanVibe" HorizontalAlignment="Left" Margin="31,-12,0,0" VerticalAlignment="Top" Width="237" FontSize="48" RenderTransformOrigin="0.5,0.5" Height="65">
             <Label.RenderTransform>

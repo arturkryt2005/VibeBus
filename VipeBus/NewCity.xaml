@@ -14,11 +14,18 @@
         </Grid.RowDefinitions>
 
         <Label Content="Город:" VerticalAlignment="Center" Height="64"/>
-        <TextBox x:Name="cityTextBox" Grid.Row="0" Margin="5" VerticalAlignment="Center"/>
+        <TextBox x:Name="cityTextBox" Grid.Row="0" Margin="5" MaxLength="20" VerticalAlignment="Center"/>
 
         <Label Content="Регион:" VerticalAlignment="Top" Height="64" Margin="0,41,0,0" Grid.RowSpan="3"/>
-        <TextBox x:Name="regionTextBox" Grid.Row="1" Margin="5" VerticalAlignment="Center"/>
-
+        <ComboBox x:Name="regionTextBox" Grid.Row="1" Margin="5" VerticalAlignment="Center" Width="200">
+            <ComboBoxItem Content="Московская область"/>
+            <ComboBoxItem Content="Республика Марий Эл"/>
+            <ComboBoxItem Content="Республика Татарстан"/>
+            <ComboBoxItem Content="Удмуртская Республика"/>
+            <ComboBoxItem Content="Ленинградская область"/>
+            <ComboBoxItem Content="Нижегородская область"/>
+            <ComboBoxItem Content="Новгородская область"/>
+        </ComboBox>
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
             <Button Content="Сохранить" Width="80" Height="25" Click="SaveButton_Click" Margin="0,0,10,0"/>
             <Button Content="Выйти" Width="80" Height="25" Click="CancelButton_Click"/>

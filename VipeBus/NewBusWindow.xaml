@@ -17,9 +17,9 @@
         </Grid.ColumnDefinitions>
 
         <Label Grid.Row="0" Grid.Column="0">Наименование</Label>
-        <TextBox x:Name="NameTextBox" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" />
+        <TextBox x:Name="NameTextBox" MaxLength="20" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" />
         <Label Grid.Row="1" Grid.Column="0">Номер</Label>
-        <TextBox x:Name="NumberTextBox" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"/>
+        <TextBox x:Name="NumberTextBox" MaxLength="5" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"/>
 
         <Button Content="Сохранить" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="SaveButton_Click"/>
         <Button Content="Отмена" Grid.Row="7" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="CancelButton_Click"/>

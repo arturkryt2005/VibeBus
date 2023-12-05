@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows;
 using VipeBus.Application.Entities.Cities;
 using VipeBus.Core;
@@ -47,9 +48,15 @@ namespace VipeBus
                 return true;
             }
 
+            if (!Regex.IsMatch(cityTextBox.Text, "^[a-zA-Z0-9 ]+$"))
+            {
+                MessageBox.Show("Недопустимые символы в поле названия города.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return true;
+            }
+
             if (string.IsNullOrWhiteSpace(regionTextBox.Text))
             {
-                MessageBox.Show("Введите регион города.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Выберите регион города.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return true;
             }
 
@@ -61,6 +68,7 @@ namespace VipeBus
 
             return false;
         }
+
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {

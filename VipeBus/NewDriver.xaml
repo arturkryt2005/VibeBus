@@ -25,17 +25,17 @@
 
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Фамилия:" HorizontalAlignment="Left"/>
-                    <TextBox x:Name="LastNameTextBox"/>
+                    <TextBox x:Name="LastNameTextBox" MaxLength="20"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Имя:" HorizontalAlignment="Left"/>
-                    <TextBox x:Name="FirstNameTextBox"/>
+                    <TextBox x:Name="FirstNameTextBox" MaxLength="20"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Отчество:" HorizontalAlignment="Left"/>
-                    <TextBox x:Name="MiddleNameTextBox"/>
+                    <TextBox x:Name="MiddleNameTextBox" MaxLength="20"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal">

@@ -81,7 +81,7 @@ namespace VipeBus
         private bool CheckingConditions()
         {
             var errorMessage = string.Empty;
-            
+
             if (FromComboBox.SelectedItem == null)
                 errorMessage += "Заполните место отпраления.\n";
 
@@ -103,7 +103,7 @@ namespace VipeBus
             if (departureDatePicker.SelectedDate >= arrivalDatePicker.SelectedDate)
                 errorMessage += "Время отправления должно быть раньше времени прибытия.";
 
-            if (((City)FromComboBox.SelectedItem).Id == ((City)FromComboBox.SelectedItem).Id)
+            if (FromComboBox.SelectedItem == toComboBox.SelectedItem)
                 errorMessage += "Город отправления и город назначения должны быть разными.";
 
             if (errorMessage == string.Empty)
