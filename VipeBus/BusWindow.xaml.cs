@@ -41,7 +41,6 @@ namespace VipeBus
             headWindow.Show();
             this.Close();
         }
-
         private void DeleteBusButton_OnClick(object sender, RoutedEventArgs e)
         {
             if (BusDataGrid.SelectedItem != null)
