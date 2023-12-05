@@ -24,38 +24,26 @@ namespace VipeBus
             {
                 foreach (var user in _context.Users.ToList())
                 {
-                    /* if (UserLog.Text == user.Name && UserPas.Text == user.Password)
-                     {*/
+                    if (UserLog.Text == user.Name && UserPas.Password == user.Password)
+                    {
+                        MessageBox.Show("Вход выполнен успешно!");
 
-                    /*  MessageBox.Show("Вход выполнен успешно!");
+                        var headWindow = new HeadWindow
+                        {
+                            Title = "VipeBus"
+                        };
 
-                         var headWindow = new HeadWindow
-                         {
-                             Title = "VipeBus"
-                         };
+                        headWindow.Show();
+                        this.Close();
 
-                         headWindow.Show();
-                         this.Close();
+                        Close();
 
-                         Close();
-
-                         return;}*/
+                        return;
+                    }
                 }
-                MessageBox.Show("Вход выполнен успешно!");
+              
 
-                var headWindow = new HeadWindow
-                {
-                    Title = "VipeBus"
-                };
-
-                headWindow.Show();
-                this.Close();
-
-                Close();
-
-                return;
-
-                /* MessageBox.Show("Неверное имя пользователя или пароль.");*/
+                MessageBox.Show("Неверное имя пользователя или пароль.");
             }
         }
     }

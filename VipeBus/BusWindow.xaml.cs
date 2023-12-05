@@ -68,5 +68,10 @@ namespace VipeBus
             else
                 MessageBox.Show("Выберите автобус для удаления.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
         }
+
+        private void EditBusButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            //todo
+        }
     }
 }
