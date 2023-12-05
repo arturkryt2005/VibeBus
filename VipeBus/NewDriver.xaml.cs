@@ -48,13 +48,8 @@ namespace VipeBus
                 return;
             }
 
-            if (!IsValidInput(LastNameTextBox.Text) ||
-                !IsValidInput(FirstNameTextBox.Text) ||
-                !IsValidInput(MiddleNameTextBox.Text))
-            {
-                MessageBox.Show("Недопустимые символы в полях ввода.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
+
+
 
             if (string.IsNullOrWhiteSpace(BusComboBox.Text))
             {
@@ -75,7 +70,7 @@ namespace VipeBus
                     _context.Drivers.Add(newDriver);
                     _context.SaveChanges();
 
-                    _driver.tripDataGrid.ItemsSource = _context.Drivers
+                    _driver.driverDataGrid.ItemsSource = _context.Drivers
                         .Include("Bus")
                         .ToList();
 

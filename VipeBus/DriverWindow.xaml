@@ -16,7 +16,7 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <DataGrid x:Name="tripDataGrid" AutoGenerateColumns="False" Margin="316,39,44,61">
+        <DataGrid x:Name="driverDataGrid" AutoGenerateColumns="False" Margin="316,39,44,61">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Фамилия" Binding="{Binding LastName}" Width="*"/>
                 <DataGridTextColumn Header="Имя" Binding="{Binding FirstName}" Width="*"/>

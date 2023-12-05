@@ -14,7 +14,7 @@ namespace VipeBus
             InitializeComponent();
 
             _context = new VipeBusContext();
-            tripDataGrid.ItemsSource = _context.Drivers.Include("Bus").ToList();
+            driverDataGrid.ItemsSource = _context.Drivers.Include("Bus").ToList();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -40,9 +40,18 @@ namespace VipeBus
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            if (tripDataGrid.SelectedItem != null)
+
+            if (driverDataGrid.SelectedItem != null)
             {
-                var selectedDriver = (Application.Entities.Drivers.Driver)tripDataGrid.SelectedItem;
+                var selectedDriver = (Application.Entities.Drivers.Driver)driverDataGrid.SelectedItem;
+
+
+                if (_context.Routes.Any(route => route.Driver.Id == selectedDriver.Id || route.Driver.Id == selectedDriver.Id))
+                {
+                    MessageBox.Show("Нельзя удалить водителя, который задействован в маршруте.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+
 
                 selectedDriver.Bus = null;
 
@@ -54,7 +63,7 @@ namespace VipeBus
                     _context.Drivers.Remove(selectedDriver);
                     _context.SaveChanges();
 
-                    tripDataGrid.ItemsSource = _context.Drivers.Include("Bus").ToList();
+                    driverDataGrid.ItemsSource = _context.Drivers.Include("Bus").ToList();
                 }
             }
             else

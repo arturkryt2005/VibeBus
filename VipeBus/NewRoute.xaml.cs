@@ -107,9 +107,6 @@ namespace VipeBus
             if (FromComboBox.SelectedItem == toComboBox.SelectedItem)
                 errorMessage += "Город отправления и город назначения должны быть разными.";
 
-            if (!IsValidInput(FromComboBox.Text) || !IsValidInput(toComboBox.Text))
-                errorMessage += "Используйте только буквы, цифры и пробелы в полях выбора городов.\n";
-
             if (errorMessage == string.Empty)
                 return false;
 

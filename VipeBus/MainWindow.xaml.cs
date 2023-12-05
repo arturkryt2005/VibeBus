@@ -40,10 +40,11 @@ namespace VipeBus
 
                         return;
                     }
+                    else
+                        MessageBox.Show("Неверное имя пользователя или пароль.");
                 }
-              
 
-                MessageBox.Show("Неверное имя пользователя или пароль.");
+
             }
         }
     }
