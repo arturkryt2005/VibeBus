@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VipeBus"
         mc:Ignorable="d"
-        Title="NewDriver" Height="386" Width="653" MinHeight="300" MinWidth="600" MaxHeight="600" MaxWidth="900">
+        Title="Добавление водителя" Height="386" Width="653" MinHeight="300" MinWidth="600" MaxHeight="600" MaxWidth="900">
     <Grid Margin="0,0,0,-6">
         <Border BorderBrush="#333" BorderThickness="1" Background="#FFE6DEDE" CornerRadius="10" Margin="0,0,0,-7">
             <StackPanel Margin="20">
-                <!-- Добавленная кнопка "Назад" -->
+               
 
                 <StackPanel.Resources>
                     <Style TargetType="Label">

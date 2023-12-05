@@ -54,7 +54,7 @@ namespace VipeBus
                 MessageBox.Show("Выберите маршрут для удаления.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Back_Click(object sender, RoutedEventArgs e)
         {
             var headWindow = new HeadWindow
             {

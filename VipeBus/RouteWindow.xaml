@@ -33,6 +33,6 @@
             </DataGrid.Columns>
         </DataGrid>
         <Button Content="Добавить маршрут" x:Name="NewRouteButton" HorizontalAlignment="Left" Margin="34,177,0,0" VerticalAlignment="Top" Width="241" Height="44" FontSize="16" Click="NewRouteButton_Click"/>
-        <Button  Content="Главная" HorizontalAlignment="Left" Margin="34,100,0,0" VerticalAlignment="Top" Width="241" Height="44" FontSize="16" Click="Button_Click"/>
+        <Button  Content="Главная" HorizontalAlignment="Left" Margin="34,100,0,0" VerticalAlignment="Top" Width="241" Height="44" FontSize="16" Click="Back_Click"/>
     </Grid>
 </Window>

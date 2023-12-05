@@ -70,7 +70,7 @@ namespace VipeBus
             this.Close();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Drivers_Click(object sender, RoutedEventArgs e)
         {
             var driverWindow = new DriverWindow
             {
@@ -80,7 +80,7 @@ namespace VipeBus
             this.Close();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void City_Click(object sender, RoutedEventArgs e)
         {
             var city = new CityWindow();
             city.Show();

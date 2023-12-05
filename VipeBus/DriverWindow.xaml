@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Driver" Height="830" Width="1280" MinHeight="500" MinWidth="800">
+        Title="Водители" Height="830" Width="1280" MinHeight="500" MinWidth="800">
     <Grid>
         <Label Content="UrbanVibe" HorizontalAlignment="Left" Margin="31,-12,0,0" VerticalAlignment="Top" Width="237" FontSize="48" RenderTransformOrigin="0.5,0.5" Height="65">
             <Label.RenderTransform>
@@ -31,7 +31,7 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Добавить водителя" HorizontalAlignment="Left" Margin="34,83,0,0" VerticalAlignment="Top" Width="241" Height="44" FontSize="16" Click="Button_Click_1"/>
-        <Button Content="Главная" HorizontalAlignment="Left" Margin="34,139,0,0" VerticalAlignment="Top" Width="241" Height="45" FontSize="16" Click="Button_Click"/>
+        <Button Content="Добавить водителя" HorizontalAlignment="Left" Margin="34,83,0,0" VerticalAlignment="Top" Width="241" Height="44" FontSize="16" Click="AddDriver_Click"/>
+        <Button Content="Главная" HorizontalAlignment="Left" Margin="34,139,0,0" VerticalAlignment="Top" Width="241" Height="45" FontSize="16" Click="Back_Click"/>
     </Grid>
 </Window>

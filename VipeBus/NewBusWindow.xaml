@@ -16,12 +16,12 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Label Grid.Row="0" Grid.Column="0">Наименование</Label>
+        <Label Grid.Row="0" Grid.Column="0" Content="&#xD;&#xA;Наименование"/>
         <TextBox x:Name="NameTextBox" MaxLength="20" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" />
-        <Label Grid.Row="1" Grid.Column="0">Номер</Label>
+        <Label Grid.Row="1" Grid.Column="0" Content="&#xD;&#xA;Номер"/>
         <TextBox x:Name="NumberTextBox" MaxLength="5" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"/>
 
-        <Button Content="Сохранить" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="SaveButton_Click"/>
-        <Button Content="Отмена" Grid.Row="7" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="CancelButton_Click"/>
+        <Button Content="Сохранить" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="SaveButton_Click" Width="65"/>
+        <Button Content="Отмена" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="CancelButton_Click" Width="65"/>
     </Grid>
 </Window>

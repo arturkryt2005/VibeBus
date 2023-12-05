@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="NewCity" Height="200" Width="300" MinHeight="200" MinWidth="300" MaxHeight="600" MaxWidth="600">
+        Title="Добавление города" Height="200" Width="300" MinHeight="200" MinWidth="300" MaxHeight="600" MaxWidth="600">
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>

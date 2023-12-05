@@ -17,7 +17,7 @@ namespace VipeBus
             driverDataGrid.ItemsSource = _context.Drivers.Include("Bus").ToList();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Back_Click(object sender, RoutedEventArgs e)
         {
             var headWindow = new HeadWindow
             {
@@ -28,7 +28,7 @@ namespace VipeBus
             Close();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void AddDriver_Click(object sender, RoutedEventArgs e)
         {
             var newDriver = new NewDriver(this)
             {
