@@ -6,23 +6,19 @@
         xmlns:local="clr-namespace:VipeBus"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="900" MinHeight="600" MinWidth="900">
-    <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+    <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="111">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
+            <Label FontSize="36" Grid.Column="1" Grid.Row="0" Content="Вход в систему" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBox x:Name="UserLog" Width="250" Height="20" Grid.Row="1" HorizontalAlignment="Center" Margin="25,0,25,0" Background="White"   />
+            <PasswordBox x:Name="UserPas" Width="250" Height="20" Grid.Row="2" HorizontalAlignment="Center" Grid.Column="1" Margin="25,5,25,8" Grid.RowSpan="2" />
+            <Button Content="Войти" Width="250" Height="20" Grid.Row="3" HorizontalAlignment="Center" Margin="0,31,0,-29" Click="LoginButton_Click"/>
 
-            <TextBox x:Name="UserLog" Width="250" Height="20" Grid.Row="1" HorizontalAlignment="Center" Margin="25,0,25,0" />
-            <PasswordBox x:Name="UserPas" Width="250" Height="20" Grid.Row="3" HorizontalAlignment="Center" Grid.Column="1" Margin="25,5,25,8" Grid.RowSpan="2" />
-
-            <Button Content="Войти" Width="250" Height="20" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" Margin="25,10,25,-10" Click="LoginButton_Click"/>
-
-            <TextBlock x:Name="ErrorMessage" Foreground="Red" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" Margin="5" Visibility="Collapsed"/>
-            <Label  Grid.Column="1" Content="Вход в систему" HorizontalAlignment="Center" VerticalAlignment="Center" Height="28" Width="96"/>
         </Grid>
     </WrapPanel>
 </Window>
