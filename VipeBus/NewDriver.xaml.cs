@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows;
 using VipeBus.Application.Entities.Buses;
 using VipeBus.Core;
@@ -47,6 +48,14 @@ namespace VipeBus
                 return;
             }
 
+            if (!IsValidInput(LastNameTextBox.Text) ||
+                !IsValidInput(FirstNameTextBox.Text) ||
+                !IsValidInput(MiddleNameTextBox.Text))
+            {
+                MessageBox.Show("Недопустимые символы в полях ввода.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
             if (string.IsNullOrWhiteSpace(BusComboBox.Text))
             {
                 MessageBox.Show("Выберите номер автобуса.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -82,7 +91,11 @@ namespace VipeBus
 
             Close();
         }
-        
+        private bool IsValidInput(string input)
+        {
+            return Regex.IsMatch(input, "^[a-zA-Z0-9 ]+$");
+        }
+
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows;
 using VipeBus.Application.Entities.Cities;
 using VipeBus.Application.Entities.Drivers;
@@ -106,14 +107,19 @@ namespace VipeBus
             if (FromComboBox.SelectedItem == toComboBox.SelectedItem)
                 errorMessage += "Город отправления и город назначения должны быть разными.";
 
+            if (!IsValidInput(FromComboBox.Text) || !IsValidInput(toComboBox.Text))
+                errorMessage += "Используйте только буквы, цифры и пробелы в полях выбора городов.\n";
+
             if (errorMessage == string.Empty)
                 return false;
 
-            else
-            {
-                MessageBox.Show(errorMessage, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return true;
-            }
+            MessageBox.Show(errorMessage, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            return true;
+        }
+
+        private bool IsValidInput(string input)
+        {
+            return Regex.IsMatch(input, "^[a-zA-Z0-9 ]+$");
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)

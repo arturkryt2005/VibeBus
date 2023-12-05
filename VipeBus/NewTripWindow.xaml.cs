@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows;
 using VipeBus.Application.Entities.Buses;
 using VipeBus.Application.Entities.Routes;
@@ -9,13 +10,9 @@ using VipeBus.Core;
 
 namespace VipeBus
 {
-    /// <summary>
-    /// Логика взаимодействия для NewTripWindow.xaml
-    /// </summary>
     public partial class NewTripWindow : Window
     {
         private VipeBusContext _context;
-
         private readonly HeadWindow _headWindow;
 
         public NewTripWindow(HeadWindow headWindow)
@@ -23,7 +20,6 @@ namespace VipeBus
             InitializeComponent();
 
             _headWindow = headWindow;
-
             _context = new VipeBusContext();
 
             FillComboBox();
@@ -41,7 +37,7 @@ namespace VipeBus
 
         private void SaveButton_OnClick(object sender, RoutedEventArgs e)
         {
-            if (CheckingConditions()) 
+            if (CheckingConditions())
                 return;
 
             var newTrip = new Trip
@@ -75,31 +71,33 @@ namespace VipeBus
 
         private bool CheckingConditions()
         {
+            var errorMessage = string.Empty;
+
             if (string.IsNullOrWhiteSpace(TripNameTextBox.Text))
-            {
-                MessageBox.Show("Введите наименование поездки.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return true;
-            }
+                errorMessage += "Введите наименование поездки.\n";
 
             if (string.IsNullOrWhiteSpace(BusComboBox.Text))
-            {
-                MessageBox.Show("Выберите номер автобуса.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return true;
-            }
+                errorMessage += "Выберите номер автобуса.\n";
 
             if (string.IsNullOrWhiteSpace(UserComboBox.Text))
-            {
-                MessageBox.Show("Выберите клиента.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return true;
-            }
+                errorMessage += "Выберите клиента.\n";
 
             if (string.IsNullOrWhiteSpace(RouteComboBox.Text))
-            {
-                MessageBox.Show("Выберите маршрут.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return true;
-            }
+                errorMessage += "Выберите маршрут.\n";
 
-            return false;
+            if (!IsValidInput(TripNameTextBox.Text))
+                errorMessage += "Используйте только буквы, цифры и пробелы в наименовании поездки.\n";
+
+            if (errorMessage == string.Empty)
+                return false;
+
+            MessageBox.Show(errorMessage, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            return true;
+        }
+
+        private bool IsValidInput(string input)
+        {
+            return Regex.IsMatch(input, "^[a-zA-Z0-9 ]+$");
         }
 
         private void CancelButton_OnClick(object sender, RoutedEventArgs e)
