@@ -40,7 +40,7 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Добавить водителя" HorizontalAlignment="Left" Margin="34,83,0,0" VerticalAlignment="Top" Width="241" Height="44" FontSize="16" Click="Button_Click_1"/>
-        <Button Content="Главная" HorizontalAlignment="Left" Margin="34,139,0,0" VerticalAlignment="Top" Width="241" Height="45" FontSize="16" Click="Button_Click"/>
+        <Button Grid.Row="1" Style="{DynamicResource ButtonStyleGlobal}" Content="Добавить водителя" HorizontalAlignment="Left" Margin="10 0 0 0" VerticalAlignment="Top" Width="240" Height="45" FontSize="16" Click="AddDriver_Click"/>
+        <Button Grid.Row="2" Style="{DynamicResource ButtonStyleGlobal}" Content="Главная" HorizontalAlignment="Left" Margin="10 10 0 0" VerticalAlignment="Top" Width="240" Height="45" FontSize="16" Click="Back_Click"/>
     </Grid>
 </Window>

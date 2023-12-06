@@ -6,18 +6,20 @@
         xmlns:local="clr-namespace:VipeBus"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="900" MinHeight="600" MinWidth="900" WindowState="Maximized">
-    <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="111">
-        <Grid>
+    <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="317" Background="LightGray" Width="374">
+        <Grid Height="317" Width="374">
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
-            <Label FontSize="36" Grid.Column="1" Grid.Row="0" Content="Вход в систему" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <TextBox x:Name="UserLog" Width="250" Height="20" Grid.Row="1" HorizontalAlignment="Center" Margin="25,0,25,0" Background="White"   />
-            <PasswordBox x:Name="UserPas" Width="250" Height="20" Grid.Row="2" HorizontalAlignment="Center" Grid.Column="1" Margin="25,5,25,8" Grid.RowSpan="2" />
-            <Button Content="Войти" Width="250" Height="20" Grid.Row="3" HorizontalAlignment="Center" Margin="0,31,0,-29" Click="LoginButton_Click"/>
+            <Label FontSize="36" Content="Вход в систему" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+            <Label Grid.Row="1" FontSize="12" Content="Логин" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="104,5,0,0" RenderTransformOrigin="0.499,0.475"/>
+            <TextBox x:Name="UserLog" Width="165" Height="25" Grid.Row="1" HorizontalAlignment="Center" Margin="0,25,0,0" Background="White" VerticalAlignment="Top" Grid.RowSpan="2"/>
+            <PasswordBox x:Name="UserPas" Width="165" Height="25" Grid.Row="2" HorizontalAlignment="Center" Margin="0,25,0,0" VerticalAlignment="Top" Grid.RowSpan="2" />
+            <Label Grid.Row="2" FontSize="12" Content="Пароль" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="104,0,0,0" RenderTransformOrigin="0.499,0.475"/>
+            <Button Content="Войти" Width="165" Grid.Row="3" HorizontalAlignment="Center" Margin="0,31,0,-20" Click="LoginButton_Click"/>
 
         </Grid>
     </WrapPanel>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VipeBus"
         mc:Ignorable="d"
-        Title="HeadWindow" Height="830" Width="1280" MinHeight="500" MinWidth="800" WindowState="Maximized">
+        Title="HeadWindow" MinHeight="600" MinWidth="900" WindowState="Maximized">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="260"></ColumnDefinition>
@@ -29,15 +29,13 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Button Content="Новая поездка" HorizontalAlignment="Left" Margin="40,90,0,0" VerticalAlignment="Top" Width="241" Height="44" FontSize="16" Click="AddTripButton_Click"/>
-        <Button Content="Водители" HorizontalAlignment="Left" Margin="40,146,0,0" VerticalAlignment="Top" Width="241" Height="44" FontSize="16" Click="Button_Click"/>
-        <Button Content="Города" HorizontalAlignment="Left" Margin="40,202,0,0" VerticalAlignment="Top" Width="241" Height="45" FontSize="16" Click="Button_Click_1"/>
-        <Button Content="Маршрут" HorizontalAlignment="Left" Margin="40,258,0,0" VerticalAlignment="Top" Width="241" Height="45" FontSize="16" Click="RouteButton_Click"/>
+        <Button Style="{DynamicResource ButtonStyleGlobal}" Grid.Row="1" Content="Новая поездка" HorizontalAlignment="Left" Margin="10 10 0 0" VerticalAlignment="Top" Width="241" Height="44" FontSize="16" Click="AddTripButton_Click"/>
+        <Button Style="{DynamicResource ButtonStyleGlobal}" Grid.Row="2" Content="Водители" HorizontalAlignment="Left" Margin="10 10 0 0" VerticalAlignment="Top" Width="241" Height="44" FontSize="16" Click="Drivers_Click"/>
+        <Button Style="{DynamicResource ButtonStyleGlobal}" Grid.Row="3" Content="Города" HorizontalAlignment="Left" Margin="10 10 0 0" VerticalAlignment="Top" Width="241" Height="45" FontSize="16" Click="City_Click"/>
+        <Button Style="{DynamicResource ButtonStyleGlobal}" Grid.Row="4" Content="Маршрут" HorizontalAlignment="Left" Margin="10 10 0 0" VerticalAlignment="Top" Width="241" Height="45" FontSize="16" Click="RouteButton_Click"/>
+        <Button Style="{DynamicResource ButtonStyleGlobal}" Grid.Row="5" Content="Автобусы" HorizontalAlignment="Left" Margin="10 10 0 0" VerticalAlignment="Top" Width="241" Height="45" FontSize="16" Click="BusButton_Click"/>
 
-        <Rectangle Fill="LightGray" Margin="313,36,40,57"/>
-
-        
-        <DataGrid x:Name="tripDataGrid" AutoGenerateColumns="False" Margin="316,39,44,61">
+        <DataGrid Grid.Column="1" Grid.RowSpan="6" x:Name="tripDataGrid" AutoGenerateColumns="False" Margin="30 30 30 30">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Город отправления" Binding="{Binding Route.DeparturePoint.Name}" Width="*"/>
                 <DataGridTextColumn Header="Город прибытия" Binding="{Binding Route.DestinationPoint.Name}" Width="*"/>

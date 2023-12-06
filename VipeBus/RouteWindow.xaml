@@ -6,7 +6,16 @@
         mc:Ignorable="d"
         Title="Маршруты следования" MinHeight="600" MinWidth="900" WindowState="Maximized">
     <Grid>
-        <Label Content="UrbanVibe" HorizontalAlignment="Left" Margin="31,-12,0,0" VerticalAlignment="Top" Width="237" FontSize="48" RenderTransformOrigin="0.5,0.5" Height="65">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="260"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="85"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Content="Маршруты" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Width="249" FontSize="48" RenderTransformOrigin="0.5,0.5" Height="84">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -16,7 +25,7 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <DataGrid x:Name="routeDataGrid" AutoGenerateColumns="False" Margin="316,39,44,61">
+        <DataGrid Grid.Column="1" Grid.RowSpan="3" x:Name="routeDataGrid" AutoGenerateColumns="False" Margin="30 30 30 30">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Откуда" Binding="{Binding DeparturePoint.Name}" Width="*"/>
                 <DataGridTextColumn Header="Куда" Binding="{Binding DestinationPoint.Name}" Width="*"/>
@@ -32,7 +41,7 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Добавить маршрут" x:Name="NewRouteButton" HorizontalAlignment="Left" Margin="34,177,0,0" VerticalAlignment="Top" Width="241" Height="44" FontSize="16" Click="NewRouteButton_Click"/>
-        <Button  Content="Главная" HorizontalAlignment="Left" Margin="34,100,0,0" VerticalAlignment="Top" Width="241" Height="44" FontSize="16" Click="Button_Click"/>
+        <Button Style="{DynamicResource ButtonStyleGlobal}" Grid.Row="1" Content="Добавить маршрут" x:Name="NewRouteButton" HorizontalAlignment="Left" Margin="10 10 0 0" VerticalAlignment="Top" Width="241" Height="44" FontSize="16" Click="NewRouteButton_Click"/>
+        <Button Style="{DynamicResource ButtonStyleGlobal}" Grid.Row="2" Content="Главная" HorizontalAlignment="Left" Margin="10 10 0 0" VerticalAlignment="Top" Width="241" Height="44" FontSize="16" Click="Back_Click"/>
     </Grid>
 </Window>
