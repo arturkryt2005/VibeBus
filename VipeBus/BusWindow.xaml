@@ -6,25 +6,25 @@
         mc:Ignorable="d"
         Title="Автобусы" MinHeight="600" MinWidth="900" WindowState="Maximized">
     <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="255"></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="85"></RowDefinition>
-                <RowDefinition Height="60"></RowDefinition>
-                <RowDefinition></RowDefinition>
-            </Grid.RowDefinitions>
-            <Label Margin="10 0 0 0" Content="Автобусы" HorizontalAlignment="Left" VerticalAlignment="Top" Width="237" FontSize="48" RenderTransformOrigin="0.5,0.5" Height="83">
-                <Label.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform AngleX="0.781"/>
-                        <RotateTransform/>
-                        <TranslateTransform X="0.504"/>
-                    </TransformGroup>
-                </Label.RenderTransform>
-            </Label>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="255"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="85"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Margin="10 0 0 0" Content="Автобусы" HorizontalAlignment="Left" VerticalAlignment="Top" Width="237" FontSize="48" RenderTransformOrigin="0.5,0.5" Height="83">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="0.781"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0.504"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
 
         <DataGrid Grid.Column="1" Grid.RowSpan="3" x:Name="BusDataGrid" AutoGenerateColumns="False" Margin="30 30 30 30">
             <DataGrid.Columns>
@@ -41,7 +41,7 @@
             </DataGrid.Columns>
         </DataGrid>
 
-            <Button Grid.Row="1" Margin="10 10 0 0" Style="{DynamicResource ButtonStyleGlobal}" Name="AddBusButton" Content="Добавить автобус" HorizontalAlignment="Left" VerticalAlignment="Top" Width="240" Height="45" FontSize="16" Click="AddBusButton_OnClick" BorderThickness="1,1,1,1"/>
-            <Button Grid.Row="2" Margin="10 10 0 0" Style="{DynamicResource ButtonStyleGlobal}" Name="BackButton" Content="Главная" HorizontalAlignment="Left" VerticalAlignment="Top" Width="240" Height="45" FontSize="16" Click="BackButton_OnClick"/>
-        </Grid>
+        <Button Grid.Row="1" Margin="10 10 0 0" Style="{DynamicResource ButtonStyleGlobal}" Name="AddBusButton" Content="Добавить автобус" HorizontalAlignment="Left" VerticalAlignment="Top" Width="240" Height="45" FontSize="16" Click="AddBusButton_OnClick" BorderThickness="1,1,1,1"/>
+        <Button Grid.Row="2" Margin="10 10 0 0" Style="{DynamicResource ButtonStyleGlobal}" Name="BackButton" Content="Главная" HorizontalAlignment="Left" VerticalAlignment="Top" Width="240" Height="45" FontSize="16" Click="BackButton_OnClick"/>
+    </Grid>
 </Window>
