@@ -5,6 +5,7 @@ using VipeBus.Core;
 
 namespace VipeBus
 {
+
     public partial class DriverWindow : Window
     {
         private VipeBusContext _context;
@@ -17,6 +18,7 @@ namespace VipeBus
             driverDataGrid.ItemsSource = _context.Drivers.Include("Bus").ToList();
         }
 
+
         private void Back_Click(object sender, RoutedEventArgs e)
         {
             var headWindow = new HeadWindow
@@ -28,14 +30,22 @@ namespace VipeBus
             Close();
         }
 
+        private NewDriver newDriver;
         private void AddDriver_Click(object sender, RoutedEventArgs e)
         {
-            var newDriver = new NewDriver(this)
+            if (newDriver == null || !newDriver.IsVisible)
             {
-                Title = "Добавить водителя"
-            };
-
-            newDriver.Show();
+                newDriver = new NewDriver(this)
+                {
+                    Title = "Добавить водителя"
+                };
+                newDriver.Closed += (s, args) => newDriver = null;
+                newDriver.Show();
+            }
+            else
+            {
+                newDriver.Activate();
+            }
         }
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
