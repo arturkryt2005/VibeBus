@@ -20,17 +20,23 @@ namespace VipeBus
             BusDataGrid.ItemsSource = _context.Buses
                 .ToList();
         }
-
+        private NewBusWindow newBusWindow;
         private void AddBusButton_OnClick(object sender, RoutedEventArgs e)
         {
-            var newBusWindow = new NewBusWindow(this)
+            if (newBusWindow == null || !newBusWindow.IsVisible)
             {
-                Title = "Добавить автобус"
-            };
-
-            newBusWindow.Show();
+                newBusWindow = new NewBusWindow(this)
+                {
+                    Title = "Добавить автобус"
+                };
+                newBusWindow.Closed += (s, args) => newBusWindow = null;
+                newBusWindow.Show();
+            }
+            else
+            {
+                newBusWindow.Activate();
+            }
         }
-
         private void BackButton_OnClick(object sender, RoutedEventArgs e)
         {
             var headWindow = new HeadWindow

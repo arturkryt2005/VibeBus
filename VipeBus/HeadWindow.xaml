@@ -17,14 +17,14 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Button Content="Новая поездка" HorizontalAlignment="Left" Margin="40,90,0,0" VerticalAlignment="Top" Width="241" Height="44" FontSize="16" Click="AddTripButton_Click"/>
+        <Button Content="Новая поездка" HorizontalAlignment="Left" Margin="40,83,0,0" VerticalAlignment="Top" Width="241" Height="44" FontSize="16" Click="AddTripButton_Click"/>
         <Button Content="Водители" HorizontalAlignment="Left" Margin="40,146,0,0" VerticalAlignment="Top" Width="241" Height="44" FontSize="16" Click="Drivers_Click"/>
         <Button Content="Города" HorizontalAlignment="Left" Margin="40,202,0,0" VerticalAlignment="Top" Width="241" Height="45" FontSize="16" Click="City_Click"/>
         <Button Content="Маршрут" HorizontalAlignment="Left" Margin="40,258,0,0" VerticalAlignment="Top" Width="241" Height="45" FontSize="16" Click="RouteButton_Click"/>
 
         <Rectangle Fill="LightGray" Margin="313,36,40,57"/>
 
-        
+
         <DataGrid x:Name="tripDataGrid" AutoGenerateColumns="False" Margin="316,39,44,61">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Город отправления" Binding="{Binding Route.DeparturePoint.Name}" Width="*"/>

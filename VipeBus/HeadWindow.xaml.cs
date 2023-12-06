@@ -22,14 +22,25 @@ namespace VipeBus
                 .ToList();
         }
 
+        private NewTripWindow routeWindow;
+
         private void AddTripButton_Click(object sender, RoutedEventArgs e)
         {
-            var routeWindow = new NewTripWindow(this)
+            if (routeWindow == null || !routeWindow.IsVisible)
             {
-                Title = "Маршруты"
-            };
-            routeWindow.Show();
+                routeWindow = new NewTripWindow(this)
+                {
+                    Title = "Новая поездка"
+                };
+                routeWindow.Closed += (s, args) => routeWindow = null; 
+                routeWindow.Show();
+            }
+            else
+            {
+                routeWindow.Activate(); 
+            }
         }
+
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
