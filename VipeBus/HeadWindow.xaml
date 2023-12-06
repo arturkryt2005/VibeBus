@@ -5,9 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VipeBus"
         mc:Ignorable="d"
-        Title="HeadWindow" Height="830" Width="1280" MinHeight="500" MinWidth="800">
+        Title="HeadWindow" Height="830" Width="1280" MinHeight="500" MinWidth="800" WindowState="Maximized">
     <Grid>
-        <Label Content="UrbanVibe" HorizontalAlignment="Left" Margin="31,-12,0,0" VerticalAlignment="Top" Width="237" FontSize="48" RenderTransformOrigin="0.5,0.5" Height="65">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="260"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="85"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Margin="10 0 0 0" Content="UrbanVibe" HorizontalAlignment="Left" VerticalAlignment="Top" Width="237" FontSize="48" RenderTransformOrigin="0.5,0.5" Height="83">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -18,8 +30,8 @@
             </Label.RenderTransform>
         </Label>
         <Button Content="Новая поездка" HorizontalAlignment="Left" Margin="40,90,0,0" VerticalAlignment="Top" Width="241" Height="44" FontSize="16" Click="AddTripButton_Click"/>
-        <Button Content="Водители" HorizontalAlignment="Left" Margin="40,146,0,0" VerticalAlignment="Top" Width="241" Height="44" FontSize="16" Click="Drivers_Click"/>
-        <Button Content="Города" HorizontalAlignment="Left" Margin="40,202,0,0" VerticalAlignment="Top" Width="241" Height="45" FontSize="16" Click="City_Click"/>
+        <Button Content="Водители" HorizontalAlignment="Left" Margin="40,146,0,0" VerticalAlignment="Top" Width="241" Height="44" FontSize="16" Click="Button_Click"/>
+        <Button Content="Города" HorizontalAlignment="Left" Margin="40,202,0,0" VerticalAlignment="Top" Width="241" Height="45" FontSize="16" Click="Button_Click_1"/>
         <Button Content="Маршрут" HorizontalAlignment="Left" Margin="40,258,0,0" VerticalAlignment="Top" Width="241" Height="45" FontSize="16" Click="RouteButton_Click"/>
 
         <Rectangle Fill="LightGray" Margin="313,36,40,57"/>
@@ -41,7 +53,6 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Автобусы" HorizontalAlignment="Left" Margin="40,313,0,0" VerticalAlignment="Top" Width="241" Height="45" FontSize="16" Click="BusButton_Click"/>
 
     </Grid>
 </Window>
