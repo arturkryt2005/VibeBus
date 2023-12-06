@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Добавление автобуса" Height="200" Width="300" MinHeight="150" MinWidth="280" MaxHeight="450" MaxWidth="500">
+        Title="Добавление автобуса" MinHeight="170" MinWidth="400" MaxHeight="150" MaxWidth="280">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -17,9 +17,9 @@
         </Grid.ColumnDefinitions>
 
         <Label Grid.Row="0" Grid.Column="0" Content="&#xD;&#xA;Наименование"/>
-        <TextBox x:Name="NameTextBox" MaxLength="20" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" />
+        <TextBox Margin="0 0 5 0" x:Name="NameTextBox" MaxLength="20" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" />
         <Label Grid.Row="1" Grid.Column="0" Content="&#xD;&#xA;Номер"/>
-        <TextBox x:Name="NumberTextBox" MaxLength="5" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"/>
+        <TextBox Margin="0 0 5 0" x:Name="NumberTextBox" MaxLength="5" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"/>
 
         <Button Content="Сохранить" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="SaveButton_Click" Width="65"/>
         <Button Content="Отмена" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="CancelButton_Click" Width="65"/>
