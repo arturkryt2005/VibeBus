@@ -102,10 +102,16 @@ namespace VipeBus
                 errorMessage += "Заполните дату приезда.\n";
 
             if (departureDatePicker.SelectedDate >= arrivalDatePicker.SelectedDate)
-                errorMessage += "Время отправления должно быть раньше времени прибытия.";
+                errorMessage += "Дата отправления должна быть раньше либо равна прибытию.";
+
+            var departureDateTime = departureDatePicker.SelectedDate.Value.Date + departureTimePicker.Value.Value.TimeOfDay;
+            var arrivalDateTime = arrivalDatePicker.SelectedDate.Value.Date + arrivalTimePicker.Value.Value.TimeOfDay;
+
+            if (departureDateTime >= arrivalDateTime)
+                errorMessage += "Дата и время отправления должны быть раньше, чем дата и время прибытия.\n";
 
             if (FromComboBox.SelectedItem == toComboBox.SelectedItem)
-                errorMessage += "Город отправления и город назначения должны быть разными.";
+                errorMessage += "Город отправления и город назначения должны быть разными.\n";
 
             if (errorMessage == string.Empty)
                 return false;

@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Новая поездка" MinHeight="450" MinWidth="450" MaxHeight="450" MaxWidth="450">
+        Title="Добавление поездки" MinHeight="450" MinWidth="450" MaxHeight="450" MaxWidth="450">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>

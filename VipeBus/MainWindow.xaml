@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VipeBus"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="900" MinHeight="600" MinWidth="900" WindowState="Maximized">
+        Title="Вход" Height="600" Width="900" MinHeight="600" MinWidth="900" WindowState="Maximized">
     <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="317" Background="LightGray" Width="374">
         <Grid Height="317" Width="374">
             <Grid.RowDefinitions>

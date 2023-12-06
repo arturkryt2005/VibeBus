@@ -48,9 +48,6 @@ namespace VipeBus
                 return;
             }
 
-
-
-
             if (string.IsNullOrWhiteSpace(BusComboBox.Text))
             {
                 MessageBox.Show("Выберите номер автобуса.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
